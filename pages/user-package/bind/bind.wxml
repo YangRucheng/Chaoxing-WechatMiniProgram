@@ -3,7 +3,7 @@
 <view class="box" wx:if="{{account.length}}">
     <text class="account-title">{{account.length==1?'账号管理':'切换账号'}}</text>
     <view class="account-list">
-        <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" catch:longtap="changeNick" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
+        <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" catch:longpress="changeNick" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
             <image class="account-item-avatar" src="http://photo.chaoxing.com/p/{{item.uid}}_80" mode="aspectFill"></image>
             <view class="account-item-info">
                 <text class="account-item-nickname">{{item.nickname}}</text>

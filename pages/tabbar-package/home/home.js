@@ -64,10 +64,47 @@ Page({
         }
     },
 
-    toMiniProgram(e) {
+    toMiniProgram(e) { // 跳转其他小程序
         console.log("跳转其他小程序", e)
-        wx.navigateToMiniProgram({
+        wx.openEmbeddedMiniProgram({
             'appId': e.currentTarget.dataset.appid,
+            'extraData': {},
+        }).catch(e => {
+            this.showInfo("用户取消打开小程序")
+        })
+    },
+
+    showOfficial(e) { // 显示引导公众号
+        this.setData({
+            'showOfficial': true,
+        })
+    },
+
+    lookImage(e) { // 查看图片
+        wx.previewImage({
+            urls: this.data.swiperList,
+            current: this.data.swiperList[e.detail.index],
+        })
+    },
+
+    showLoading(msg) {
+        wx.showLoading({
+            title: msg,
+            mask: true,
+        })
+    },
+
+    hideLoading() {
+        wx.hideLoading({
+            noConflict: true,
+        });
+    },
+
+    showInfo(msg, icon = "none") {
+        wx.showToast({
+            title: msg,
+            mask: true,
+            icon: icon,
         })
     },
 })

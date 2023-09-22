@@ -5,13 +5,13 @@
 </view>
 
 <view class="swiper">
-    <t-swiper duration="500" interval="5000" list="{{swiperList}}" navigation="{{ {type: 'dots-bar'} }}"></t-swiper>
+    <t-swiper duration="500" interval="5000" list="{{swiperList}}" bind:click="lookImage" navigation="{{ {type: 'dots-bar'} }}"></t-swiper>
 </view>
 
 <view class="grid">
     <t-grid column="2" align="left">
-        <t-grid-item text="快捷签到" description="便捷学习通签到" layout="horizontal" image="/static/svg/home-签到.svg" bindtap="navigate" data-url="/pages/xxt-package/course/course"></t-grid-item>
-        <t-grid-item text="互助签到" description="支持多账号登录" layout="horizontal" image="/static/svg/home-互助.svg" bindtap="navigate" data-url="/pages/user-package/bind/bind"></t-grid-item>
+        <t-grid-item text="立即签到" description="便捷学习通签到" layout="horizontal" image="/static/svg/home-签到.svg" bindtap="navigate" data-url="/pages/xxt-package/course/course"></t-grid-item>
+        <t-grid-item text="绑定账号" description="支持多账号登录" layout="horizontal" image="/static/svg/home-互助.svg" bindtap="navigate" data-url="/pages/user-package/bind/bind"></t-grid-item>
     </t-grid>
     <t-grid column="2" align="left">
         <t-grid-item text="签到记录" description="签到历史记录" layout="horizontal" image="/static/svg/home-历史.svg" bindtap="navigate" data-url="/pages/user-package/history/history"></t-grid-item>
@@ -19,9 +19,10 @@
     </t-grid>
 </view>
 
-<view class="official">
-<official-account></official-account>
+<view class="official" hidden="{{!showOfficial}}">
+    <official-account bindload="showOfficial"></official-account>
 </view>
+
 <view class="products">
     <text class="products-title">友情推荐</text>
     <view class="products-box">

@@ -1,4 +1,7 @@
-
+<view wx:if="{{history.length == 0}}" style="width: 100%; text-align: center; margin-top: 400rpx;">
+    <image src="/static/svg/no-data.svg" style="display: block; width: 100%; height: 100rpx;" mode="aspectFit"></image>
+    <text>没有签到记录</text>
+</view>
 
 <view class="item" wx:for="{{history}}" wx:key="index">
     <text user-select="true" class="title">{{index+1}}. {{item.name}}</text>
