@@ -134,7 +134,7 @@ Page({
             .then(res => {
                 log.info(res)
                 this.setData({
-                    'location': res.data.location,
+                    'location': Object.assign(this.data.location, res.data.location),
                 })
             })
             .catch(e => {

@@ -16,6 +16,7 @@ Page({
                 util.post(`${config.host}/account/login`, {
                         'code': res.code,
                         'appid': info.miniProgram.appId,
+                        'inviter': options.inviter ? options.inviter : null, // 邀请者
                     })
                     .then(res => {
                         if (res.status == 0) {
