@@ -4,19 +4,24 @@
     <t-notice-bar visible="true" marquee="{{config.notice}}" content="{{notice}}" prefixIcon="sound"></t-notice-bar>
 </view>
 
-<view class="container">
-    <view class="title">{{config.typeConfig[data.type]}}</view>
-
-    <view>签到名: {{data.name}}</view>
-    <view>用户ID: {{data.username}}</view>
-    <view>班级ID: {{data.classId}}</view>
-    <view>课程ID: {{data.courseId}}</view>
-    <view>活动ID: {{data.activeId}}</view>
-    <view>结束时间: {{data.time}}</view>
-    <view>签到类型: {{config.typeConfig[data.type]}}</view>
-
-    <view wx:if="{{key}}" class="copy" bindtap="copy">复制数据</view>
+<view class='main'>
+    <view class="container" animation="{{animationMain}}" bindtap='rotateFn' data-id="1">
+        <view class="container-text">
+            <view class="title">{{config.typeConfig[data.type]}}</view>
+            <view>签到名: {{data.name}}</view>
+            <view>用户ID: {{data.username}}</view>
+            <view>班级ID: {{data.classId}}</view>
+            <view>课程ID: {{data.courseId}}</view>
+            <view>活动ID: {{data.activeId}}</view>
+            <view>结束时间: {{data.time}}</view>
+            <view>签到类型: {{config.typeConfig[data.type]}}</view>
+        </view>
+    </view>
+    <view class="container back" animation="{{animationBack}}" bindtap='rotateFn' data-id="2">
+        <map class="map" longitude="{{location.longitude}}" latitude="{{location.latitude}}" markers="{{[location]}}"></map>
+    </view>
 </view>
+
 
 <!-- 普通/图片 -->
 <view wx:if="{{data.type==0 || data.type==1}}">
@@ -36,7 +41,7 @@
 <view wx:if="{{data.type==3 || data.type==5}}">
     <view class="box">
         <view class="input-box">
-            <t-input type="number" label="签到码" placeholder="" bind:change="input" data-input="signCode"></t-input>            
+            <t-input type="number" label="签到码" placeholder="" bind:change="input" data-input="signCode"></t-input>
         </view>
         <view class="button-box">
             <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
