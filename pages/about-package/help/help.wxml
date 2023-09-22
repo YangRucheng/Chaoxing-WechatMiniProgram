@@ -1,0 +1,6 @@
+<view class="text" wx:for="{{help}}" wx:key="index">
+    <text user-select="true" class="question">{{index+1}}. {{item.question}}</text>
+    <text user-select="true" class="answer">　　{{item.answer}}</text>
+</view>
+
+<view style="height: 80rpx;"></view>

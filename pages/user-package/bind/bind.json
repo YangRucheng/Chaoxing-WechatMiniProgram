@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "御坂学习 - 账号管理",
+    "usingComponents": {
+        "t-button": "tdesign-miniprogram/button/button"
+    }
+}

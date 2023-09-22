@@ -1,0 +1,24 @@
+/* pages/help/help.wxss */
+.text {
+    margin: 30rpx;
+    padding: 30rpx;
+    background-color: white;
+    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
+    border-radius: 20rpx;
+    border: 1px solid #e6e6e6;
+}
+
+.question {
+    font-size: 32rpx;
+    color: black;
+    display: block;
+    margin: 10rpx;
+}
+
+.answer {
+    font-size: 28rpx;
+    color: gray;
+    display: block;
+    margin: 10rpx;
+    line-height: 40rpx;
+}

@@ -1,0 +1,80 @@
+<!--pages/signin/signin.wxml-->
+<!-- ["拍照签到", "普通签到", "二维码签到", "手势签到", "位置签到", "签到码签到"] -->
+<view class="notice" wx:if="{{notice}}">
+    <t-notice-bar visible="true" marquee="{{config.notice}}" content="{{notice}}" prefixIcon="sound"></t-notice-bar>
+</view>
+
+<view class="container">
+    <view class="title">{{config.typeConfig[data.type]}}</view>
+
+    <view>签到名: {{data.name}}</view>
+    <view>用户ID: {{data.username}}</view>
+    <view>班级ID: {{data.classId}}</view>
+    <view>课程ID: {{data.courseId}}</view>
+    <view>活动ID: {{data.activeId}}</view>
+    <view>结束时间: {{data.time}}</view>
+    <view>签到类型: {{config.typeConfig[data.type]}}</view>
+
+    <view wx:if="{{key}}" class="copy" bindtap="copy">复制数据</view>
+</view>
+
+<!-- 普通/图片 -->
+<view wx:if="{{data.type==0 || data.type==1}}">
+    <view class="box">
+        <view class="image-box">
+            <view class="image-info">上传图片</view>
+            <t-upload t-class="image" mediaType="{{['image']}}" max="1" files="{{fileList}}" bind:add="handleAdd" bind:remove="handleRemove"></t-upload>
+        </view>
+        <view class="button-box">
+            <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
+            <t-button t-class="button" theme="primary" size="large" bindtap="signin" data-type="picture">立即签到</t-button>
+        </view>
+    </view>
+</view>
+
+<!-- 签到码/手势 -->
+<view wx:if="{{data.type==3 || data.type==5}}">
+    <view class="box">
+        <view class="input-box">
+            <t-input type="number" label="签到码" placeholder="" bind:change="input" data-input="signCode"></t-input>            
+        </view>
+        <view class="button-box">
+            <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
+            <t-button t-class="button" theme="primary" size="large" bindtap="signin" data-type="code">立即签到</t-button>
+        </view>
+    </view>
+</view>
+
+<!-- 位置 -->
+<view wx:if="{{data.type==4}}">
+    <view class="box">
+        <view class="input-box">
+            <t-input type="digit" label="纬度" value="{{location.latitude}}" placeholder="Latitude (选填)" bind:change="input" data-input="location.latitude"></t-input>
+            <t-input type="digit" label="经度" value="{{location.longitude}}" placeholder="Longitude (选填)" bind:change="input" data-input="location.longitude"></t-input>
+            <t-input type="digit" label="位置" value="{{location.addressText}}" placeholder="Address (选填)" bind:change="input" data-input="location.addressText"></t-input>
+        </view>
+        <view class="button-box">
+            <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
+            <t-button t-class="button" wx:if="{{vip}}" theme="primary" size="large" bindtap="autoGetLocation">获取位置</t-button>
+            <t-button t-class="button" wx:else="{{vip}}" theme="primary" size="large" bindtap="chooseLocation">选择位置</t-button>
+            <t-button t-class="button" theme="primary" size="large" bindtap="signin" data-type="position">提交签到</t-button>
+        </view>
+    </view>
+</view>
+
+<!-- 二维码 -->
+<view wx:if="{{data.type==2}}">
+    <view class="box">
+        <view class="input-box">
+            <t-input type="digit" label="纬度" value="{{location.latitude}}" placeholder="Latitude (选填)" bind:change="input" data-input="location.latitude"></t-input>
+            <t-input type="digit" label="经度" value="{{location.longitude}}" placeholder="Longitude (选填)" bind:change="input" data-input="location.longitude"></t-input>
+            <t-input type="digit" label="位置" value="{{location.addressText}}" placeholder="Address (选填)" bind:change="input" data-input="location.addressText"></t-input>
+        </view>
+        <view class="button-box">
+            <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
+            <t-button t-class="button" wx:if="{{vip}}" theme="primary" size="large" bindtap="autoGetLocation">获取位置</t-button>
+            <t-button t-class="button" wx:else="{{vip}}" theme="primary" size="large" bindtap="chooseLocation">选择位置</t-button>
+            <t-button t-class="button" theme="primary" size="large" bindtap="signin" data-type="qrcode">扫码签到</t-button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,105 @@
+/* pages/user/user.wxss */
+
+/* 用户信息 */
+.user {
+    height: 430rpx;
+    position: fixed;
+    width: 100%;
+    background-color: #4284ff;
+    padding: 40rpx 30rpx;
+    z-index: -1;
+}
+
+.user-avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 75rpx;
+    background-color: white;
+    margin: 120rpx 40rpx 0rpx;
+}
+
+.user-info {
+    display: inline-block;
+    position: relative;
+    top: -25rpx;
+}
+
+.user-name {
+    display: inline-block;
+    margin: 10rpx;
+    left: 250rpx;
+    top: 60rpx;
+    color: white;
+    font-size: 36rpx;
+}
+
+.user-id {
+    display: inline-block;
+    margin: 10rpx;
+    top: 145rpx;
+    color: #cecece;
+    display: block;
+    font-size: 28rpx;
+}
+
+.box {
+    position: absolute;
+    top: 400rpx;
+    width: 100%;
+    border-radius: 30rpx;
+    background-color: #f6f6f6;
+    min-height: 200rpx;
+    box-shadow: 6rpx -6rpx 6rpx rgba(0, 0, 0, 0.15);
+}
+
+.statistics,
+.more {
+    margin: 30rpx;
+    padding: 30rpx 20rpx;
+    display: block;
+    background-color: white;
+    min-height: 100rpx;
+    border-radius: 20rpx;
+    box-shadow: 0rpx 0rpx 20rpx rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.statistics-title {
+    font-size: 34rpx;
+}
+
+.more {
+    padding: 10rpx;
+    overflow: hidden;
+}
+
+.more-button {
+    margin: 0rpx 30rpx;
+    padding: 20rpx 0rpx;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: left;
+    font-size: 30rpx;
+    box-sizing: border-box;
+    background-color: white;
+    color: #383838;
+    border-radius: 0rpx;
+}
+
+.no-border {
+    border: none;
+}
+
+button::after {
+    border: none
+}
+
+button {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    font-size: normal;
+    line-height: normal;
+}

@@ -1,0 +1,12 @@
+
+
+<view class="item" wx:for="{{history}}" wx:key="index">
+    <text user-select="true" class="title">{{index+1}}. {{item.name}}</text>
+    <text user-select="true" class="text">　签到类型: {{typeConfig[item.type]}}</text>
+    <text user-select="true" class="text">　用户ID: {{item.username}}</text>
+    <text user-select="true" class="text">　课程ID: {{item.courseId}}</text>
+    <text user-select="true" class="text">　班级ID: {{item.classId}}</text>
+    <text user-select="true" class="text">　活动ID: {{item.activeId}}</text>
+</view>
+
+<view style="height: 80rpx;"></view>

@@ -1,0 +1,70 @@
+/* pages/signin/signin.wxss */
+
+.notice {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f2f3ff;
+}
+
+.container {
+    margin: 40rpx 20rpx;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    width: 650rpx;
+    height: 500rpx;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    position: relative;
+}
+
+.title{
+    font-size: 40rpx;
+    text-align: center;
+    margin: 20rpx 20rpx 40rpx;
+}
+
+.box {
+    margin: 30rpx 30rpx;
+    padding: 30rpx;
+    box-shadow: 3rpx 3rpx 12rpx rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-info {
+    color: gray;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    display: block;
+}
+
+.image-box {
+    width: 100%;
+    margin: 20rpx;
+}
+
+.image {
+    display: block;
+    height: 200rpx;
+}
+
+.input-box{
+    width: 100%;
+    margin: 0 0 30rpx;
+}
+
+.button-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40rpx;
+}
+
+.button {
+    display: inline-block;
+    flex: 1;
+}

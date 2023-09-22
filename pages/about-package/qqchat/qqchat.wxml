@@ -1,0 +1,7 @@
+<!--pages/about-package/qqchat/qqchat.wxml-->
+
+<view class="box">
+    <view class="title">用户交流群</view>
+    <image class="logo" src="{{img}}" mode="aspectFit" bindtap="click"></image>
+    <view>加入用户交流群, 查看详细教程</view>
+</view>

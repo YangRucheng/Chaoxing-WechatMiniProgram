@@ -1,0 +1,42 @@
+<!--pages/home/home.wxml-->
+
+<view class="notice">
+    <t-notice-bar visible="true" marquee="{{config.notice}}" content="{{notice}}" prefixIcon="sound"></t-notice-bar>
+</view>
+
+<view class="swiper">
+    <t-swiper duration="500" interval="5000" list="{{swiperList}}" navigation="{{ {type: 'dots-bar'} }}"></t-swiper>
+</view>
+
+<view class="grid">
+    <t-grid column="2" align="left">
+        <t-grid-item text="快捷签到" description="便捷学习通签到" layout="horizontal" image="/static/svg/home-签到.svg" bindtap="navigate" data-url="/pages/xxt-package/course/course"></t-grid-item>
+        <t-grid-item text="互助签到" description="支持多账号登录" layout="horizontal" image="/static/svg/home-互助.svg" bindtap="navigate" data-url="/pages/user-package/bind/bind"></t-grid-item>
+    </t-grid>
+    <t-grid column="2" align="left">
+        <t-grid-item text="签到记录" description="签到历史记录" layout="horizontal" image="/static/svg/home-历史.svg" bindtap="navigate" data-url="/pages/user-package/history/history"></t-grid-item>
+        <t-grid-item text="使用帮助" description="阅读使用教程" layout="horizontal" image="/static/svg/home-帮助.svg" bindtap="navigate" data-url="/pages/about-package/help/help"></t-grid-item>
+    </t-grid>
+</view>
+
+<view class="official">
+<official-account></official-account>
+</view>
+<view class="products">
+    <text class="products-title">友情推荐</text>
+    <view class="products-box">
+        <view class="products-item" wx:for="{{products}}" wx:key="index" bind:tap="toMiniProgram" data-appid="{{item.appid}}">
+            <image class="products-image" src="{{item.img}}" mode="aspectFit"></image>
+            <view class="products-text">{{item.title}}</view>
+        </view>
+
+    </view>
+</view>
+
+<view style="height: 200rpx"></view>
+
+<t-tab-bar value="home" bindchange="changeTabbar" shape="round" theme="tag">
+    <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
+    <t-tab-bar-item value="notice" icon="chat">通知</t-tab-bar-item>
+    <t-tab-bar-item value="user" icon="user">用户</t-tab-bar-item>
+</t-tab-bar>

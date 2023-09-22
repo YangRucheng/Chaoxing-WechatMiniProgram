@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "t-upload": "tdesign-miniprogram/upload/upload",
+        "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
+        "t-button": "tdesign-miniprogram/button/button"
+    }
+}

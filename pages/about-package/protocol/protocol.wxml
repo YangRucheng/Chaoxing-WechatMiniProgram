@@ -1,0 +1,4 @@
+<!--pages/about-package/protocol/protocol.wxml-->
+<view class="container">
+    <text class="text" user-select="false">{{protocol}}</text>
+</view>

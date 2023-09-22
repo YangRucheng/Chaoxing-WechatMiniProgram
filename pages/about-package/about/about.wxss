@@ -1,0 +1,112 @@
+/* pages/about/about.wxss */
+
+page {
+    color: black;
+    line-height: 52rpx;
+    background-color: #ededed;
+    background-image: none;
+}
+
+.box {
+    margin: 40rpx;
+    padding: 40rpx;
+    background-color: white;
+    min-height: 200rpx;
+    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
+    border-radius: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: block;
+    font-size: 40rpx;
+}
+
+.logo {
+    display: block;
+    width: 400rpx;
+    height: 300rpx;
+    margin: 30rpx 0;
+}
+
+.text-box {
+    min-width: 500rpx;
+    max-width: 650rpx;
+}
+
+.cooperate-title,
+.author-title,
+.open-source-title {
+    font-size: 30rpx;
+}
+
+.author-info {
+    font-size: 20rpx;
+    color: rgb(0, 0, 0, 0.75);
+}
+
+.author-item {
+    display: block;
+    font-size: 26rpx;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.cooperate-info,
+.open-source-info {
+    display: block;
+    font-size: 28rpx;
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.feedback {
+    margin-top: 120rpx;
+    text-align: center;
+}
+
+.feedback-button {
+    display: block;
+    font-size: 30rpx;
+    color: #003FE0;
+}
+
+button::after {
+    border: none;
+}
+
+.feedback-info {
+    display: block;
+    font-size: 26rpx;
+}
+
+/* 动画效果 */
+.rotate-center {
+    /* 旋转 */
+    -webkit-animation: rotate-center 3s ease-in-out infinite both;
+    animation: rotate-center 3s ease-in-out infinite both;
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

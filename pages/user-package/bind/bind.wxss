@@ -1,0 +1,127 @@
+/* pages/bind/bind.wxss */
+
+
+.box {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25rpx;
+    border: 1px solid #E7E7E7;
+    box-shadow: 4rpx 4rpx 10rpx rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    text-align: center;
+    padding: 40rpx;
+}
+
+.contact-button {
+    display: block;
+    font-size: 30rpx;
+    color: #003FE0;
+    border: none;
+    margin: 20rpx;
+}
+
+.login-title,
+.account-title {
+    font-size: 36rpx;
+    display: block;
+    margin-bottom: 15rpx;
+}
+
+.input {
+    width: 600rpx;
+    height: 100rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+    padding: 0px 0px 0px 32rpx;
+    gap: 16px;
+    background: #f6f6f6;
+    border: 1px solid #E7E7E7;
+    border-radius: 15rpx;
+    margin: 25rpx 0rpx;
+}
+
+.input-icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.input-value {
+    width: 340rpx;
+    text-align: left;
+    font-size: 30rpx;
+    margin: 0rpx 50rpx;
+    background-color: rgb(0, 0, 0, 0);
+}
+
+.login-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-button-item {
+    margin: 20rpx;
+    width: 280rpx;
+}
+
+.account-list {
+    display: block;
+    width: 640rpx;
+    text-align: left;
+}
+
+.account-item {
+    margin: 20rpx;
+    display: flex;
+    border: 1px solid #c9c9c9;
+    border-radius: 15rpx;
+    padding: 10rpx;
+    position: relative;
+}
+
+.account-item-info {
+    margin: 20rpx;
+}
+
+.account-item-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 10rpx;
+    display: inline-block;
+    border-radius: 10rpx;
+}
+
+.account-item-username,
+.account-item-nickname {
+    display: block;
+    font-size: 32rpx;
+    color: #3b3b3b;
+}
+
+.account-item-username {
+    color: gray;
+    margin-top: 5rpx;
+    font-size: 28rpx;
+}
+
+.logout {
+    position: absolute;
+    right: 20rpx;
+    top: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.login-remark {
+    font-size: 28rpx;
+    color: gray;
+}
+
+.active-item {
+    background-color: #f2f3ff;
+}

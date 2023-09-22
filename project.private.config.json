@@ -1,0 +1,57 @@
+{
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "projectname": "XTU-Chaoxing-MiniProgram",
+    "setting": {
+        "compileHotReLoad": true,
+        "urlCheck": false
+    },
+    "libVersion": "2.22.1",
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/tabbar-package/home/home",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": 1025
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/bind/bind",
+                    "query": "username=13787340343&password=6811396yang",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/user/user",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/course/course",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/signin/signin",
+                    "query": "data=N4IgLgngDgpiBcAmANCAdgQwLZ3iQMXKAvfoIAegft6AMSiKmAJY4IiAHplSBgMa0BuMAkgCYIAHAAZRwgGyCAzIIAsiAJwoQbAPYBXAE4BnXgLyJFwhQFYA7MKks2AGwzbt/BuNkvEZxFdR0A5gwAWYGBQ2vAA9GFYqgBGNDYw8RiaaAB0bP4YqgAeNGg+aapYYQBmmqpoYJExcTBhalhRaGF0GD4w2mFoMADuAIIcNNw8amgiYexcMAD6kLBTiClQeQD8nAC8Ziw02gCiWVA0mrhgmuowqOq6ydi4IACMUuLuUq4WCixQ9trdqpr6955ZCZxBAMHkWOoaP93IhhHJBII7iAAL5AA&type=help",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/help/help",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

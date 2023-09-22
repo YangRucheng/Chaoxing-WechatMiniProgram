@@ -1,0 +1,6 @@
+/* pages/about-package/protocol/protocol.wxss */
+.container{
+    margin: 10rpx 30rpx 100rpx;
+    font-size: 30rpx;
+    color: #3a3a3a;
+}

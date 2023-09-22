@@ -1,0 +1,41 @@
+<!--pages/bind/bind.wxml-->
+
+<view class="box" wx:if="{{account.length}}">
+    <text class="account-title">{{account.length==1?'账号管理':'切换账号'}}</text>
+    <view class="account-list">
+        <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" catch:longtap="changeNick" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
+            <image class="account-item-avatar" src="http://photo.chaoxing.com/p/{{item.uid}}_80" mode="aspectFill"></image>
+            <view class="account-item-info">
+                <text class="account-item-nickname">{{item.nickname}}</text>
+                <text class="account-item-username">UID #{{item.username}}</text>
+            </view>
+            <image class="logout" catch:tap="logout" data-index="{{index}}" src="/static/svg/bind-退出.svg" mode="aspectFit"></image>
+        </view>
+    </view>
+</view>
+
+<view class="box" wx:if="{{account.length<2 || vip}}">
+    <text class="login-title">添加账号</text>
+    <text class="login-remark">注: 仅支持超星账号</text>
+    <view class="input">
+        <image class="input-icon" src="/static/svg/bind-备注.svg" mode="aspectFill"></image>
+        <input class="input-value" value="{{nicknameValue}}" type="text" placeholder="备注 (非必填)" bindinput="input" data-key="nickname"></input>
+    </view>
+    <view class="input">
+        <image class="input-icon" src="/static/svg/bind-账户.svg" mode="aspectFill"></image>
+        <input class="input-value" value="{{usernameValue}}" type="number" placeholder="手机号" bindinput="input" data-key="username"></input>
+    </view>
+    <view class="input">
+        <image class="input-icon" src="/static/svg/bind-密码.svg" mode="aspectFill"></image>
+        <input class="input-value" value="{{passwordValue}}" type="text" password="true" placeholder="密码" bindinput="input" data-key="password"></input>
+    </view>
+    <view class="login-button">
+        <t-button t-class="login-button-item" theme="primary" size="large" variant="outline" open-type="share">分享账号</t-button>
+        <t-button t-class="login-button-item" theme="primary" size="large" bindtap="login">添加账号</t-button>
+    </view>
+</view>
+
+<view class="box" wx:if="{{!vip && account.length>=2}}">
+    <button class="contact-button" open-type='contact' hover-class="none" plain="true">联系客服</button>
+    <view>联系客服, 绑定更多账号</view>
+</view>

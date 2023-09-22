@@ -1,0 +1,74 @@
+{
+    "pages": [
+        "pages/tabbar-package/login/login",
+        "pages/tabbar-package/home/home",
+        "pages/tabbar-package/notice/notice",
+        "pages/tabbar-package/user/user"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "测试小程序",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": true,
+        "list": [
+            {
+                "pagePath": "pages/tabbar-package/home/home"
+            },
+            {
+                "pagePath": "pages/tabbar-package/notice/notice"
+            },
+            {
+                "pagePath": "pages/tabbar-package/user/user"
+            },
+            {
+                "pagePath": "pages/tabbar-package/login/login"
+            }
+        ]
+    },
+    "usingComponents": {
+        "t-message": "tdesign-miniprogram/message/message",
+        "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
+        "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
+        "t-input": "tdesign-miniprogram/input/input"
+    },
+    "requiredPrivateInfos": [
+        "chooseLocation"
+    ],
+    "subpackages": [
+        {
+            "root": "pages/about-package",
+            "pages": [
+                "help/help",
+                "about/about",
+                "protocol/protocol",
+                "qqchat/qqchat"
+            ]
+        },
+        {
+            "root": "pages/xxt-package",
+            "pages": [
+                "course/course",
+                "activity/activity",
+                "signin/signin"
+            ]
+        },
+        {
+            "root": "pages/user-package",
+            "pages": [
+                "bind/bind",
+                "history/history"
+            ]
+        }
+    ],
+    "preloadRule": {
+        "pages/tabbar-package/home/home": {
+            "network": "all",
+            "packages": [
+                "pages/xxt-package"
+            ]
+        }
+    }
+}

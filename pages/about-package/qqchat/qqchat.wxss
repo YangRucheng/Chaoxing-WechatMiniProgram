@@ -1,0 +1,25 @@
+/* pages/about-package/qqchat/qqchat.wxss */
+
+.box {
+    margin: 200rpx 40rpx;
+    padding: 40rpx;
+    background-color: white;
+    min-height: 200rpx;
+    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
+    border-radius: 40rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: block;
+    font-size: 40rpx;
+}
+
+.logo {
+    display: block;
+    width: 400rpx;
+    height: 400rpx;
+    margin: 30rpx 0;
+}

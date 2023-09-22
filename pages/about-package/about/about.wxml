@@ -1,0 +1,30 @@
+<!--pages/about/about.wxml-->
+
+<view class="box">
+    <view class="title">技术支持</view>
+    <image class="logo {{animation}}" src="/static/svg/home-互助.svg" mode="aspectFill" bindtap="click"></image>
+
+    <view class="text-box">
+        <view bindtap="click">
+            <text class="author-title">作者列表 </text>
+            <text class="author-title-info">（排名不分先后）</text>
+            <text class="author-item" wx:for="{{author}}" wx:key="index">@{{item.name}}（{{item.email}}）</text>
+        </view>
+        <view style="height: 48rpx"></view>
+        <view>
+            <text class="open-source-title">开源地址 </text>
+            <text class="open-source-info">尚未完成开源</text>
+        </view>
+        <view style="height: 48rpx"></view>
+        <view>
+            <text class="cooperate-title">合作交流 </text>
+            <text class="cooperate-info"> sakana@support.yangrucheng.top </text>
+        </view>
+    </view>
+
+    <view class="feedback">
+        <button class="feedback-button" open-type='feedback' hover-class="none" plain="true">问题反馈</button>
+        <text class="feedback-info">感谢您帮助我们做的更好！</text>
+    </view>
+
+</view>

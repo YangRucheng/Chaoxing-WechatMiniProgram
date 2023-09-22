@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "活动列表",
+    "usingComponents": {
+        "t-image": "tdesign-miniprogram/image/image"
+    }
+}

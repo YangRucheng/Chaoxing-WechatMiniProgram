@@ -1,0 +1,16 @@
+<!--pages/activity/activity.wxml-->
+
+<view class="box">
+    <view class="activity-item" wx:for="{{activities}}" wx:key="index" bindtap="navigate" data-classId="{{item.classId}}" data-courseId="{{item.courseId}}" data-activeId="{{item.activeId}}" data-index="{{index}}">
+        <view class="activity-item-image">
+            <t-image src="{{item.img}}" width="60" height="60" shape="round" mode="aspectFill"></t-image>
+        </view>
+        <view class="activity-item-info">
+            <text class="activity-item-title {{item.isExpire?'inside':''}}">{{item.name}}</text>
+            <text class="activity-item-other">截止时间: {{item.time}}</text>
+            <text class="activity-item-other">活动ID: {{item.activeId}}</text>
+        </view>
+    </view>
+</view>
+
+<view style="height: 60rpx;"></view>

@@ -1,0 +1,16 @@
+<!--pages/course/course.wxml-->
+
+<view class="box">
+    <view class="course-item" wx:for="{{courses}}" wx:key="index" bindtap="navigate" data-classId="{{item.classId}}" data-courseId="{{item.courseId}}" data-courseName="{{item.courseName}}">
+        <view class="course-item-image">
+            <t-image src="{{item.img}}" width="60" height="60" shape="round" mode="aspectFill"></t-image>
+        </view>
+        <view class="course-item-info">
+            <text class="course-item-title {{item.isShow?'':'inside-title'}}">{{item['课程']}}</text>
+            <text class="course-item-other">教师: {{item['教师']}}</text>
+            <text class="course-item-other">班级: {{item['班级']}}</text>
+        </view>
+    </view>
+</view>
+
+<view style="height: 60rpx;"></view>

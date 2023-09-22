@@ -1,0 +1,45 @@
+<!--pages/user/user.wxml-->
+
+<view class="user" bindtap="navigate" data-url="/pages/user-package/bind/bind">
+    <image class="user-avatar" mode="aspectFill" wx:if="{{userInfo.uid}}" src="http://photo.chaoxing.com/p/{{userInfo.uid}}_80"></image>
+    <image class="user-avatar" mode="aspectFill" wx:else="{{userInfo.uid}}" src="https://www.loliapi.com/acg/pp"></image>
+    <view class="user-info">
+        <text class="user-name">{{userInfo.nickname?userInfo.nickname:'请先登录'}}</text>
+        <text class="user-id">{{userInfo.username?'UID #':''}}{{userInfo.username}}</text>
+    </view>
+</view>
+
+<view class="box">
+    <view class="statistics">
+        <text class="statistics-title">数据统计</text>
+        <t-grid column="4">
+            <t-grid-item text="1次" description="互助次数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="1次" description="求助次数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="2个" description="绑定账号" image="{{img}}"></t-grid-item>
+            <t-grid-item text="3次" description="签到总数" image="{{img}}"></t-grid-item>
+        </t-grid>
+    </view>
+
+    <view class="more">
+        <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/bind/bind">账号管理</button>
+        <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/xxt-package/course/course">所有课程</button>
+        <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/help/help">疑难解答</button>
+    </view>
+
+    <view class="more">
+        <button hover-class="none" class="more-button" open-type="contact">联系客服</button>
+        <button hover-class="none" class="more-button" open-type="feedback">意见反馈</button>
+        <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/protocol/protocol">用户协议</button>
+        <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/qqchat/qqchat">使用交流</button>        
+        <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/about/about">关于我们</button>
+    </view>
+
+    <view style="height: 200rpx;"></view>
+</view>
+
+
+<t-tab-bar value="user" bindchange="changeTabbar" shape="round" theme="tag">
+    <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
+    <t-tab-bar-item value="notice" icon="chat">通知</t-tab-bar-item>
+    <t-tab-bar-item value="user" icon="user">用户</t-tab-bar-item>
+</t-tab-bar>

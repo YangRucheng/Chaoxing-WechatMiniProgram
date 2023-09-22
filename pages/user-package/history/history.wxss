@@ -1,0 +1,25 @@
+/* pages/user-package/history/history.wxss */
+.item {
+    margin: 30rpx;
+    padding: 30rpx;
+    background-color: white;
+    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
+    border-radius: 20rpx;
+    border: 1px solid #e6e6e6;
+    position: relative;
+}
+
+.title {
+    font-size: 32rpx;
+    color: black;
+    display: block;
+    margin: 10rpx;
+}
+
+.text {
+    font-size: 28rpx;
+    color: gray;
+    display: block;
+    margin: 10rpx;
+    line-height: 40rpx;
+}

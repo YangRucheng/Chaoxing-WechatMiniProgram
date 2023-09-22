@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "所有课程",
+    "usingComponents": {
+        "t-image": "tdesign-miniprogram/image/image"
+    }
+}
