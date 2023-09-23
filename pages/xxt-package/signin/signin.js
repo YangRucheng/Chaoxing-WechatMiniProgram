@@ -28,6 +28,8 @@ Page({
             id: 666,
         },
         html: "", // 预签到 HTML
+        showChooseType: false, // 是否显示手动选择类型
+        debugNum: 0, // 进入 debug 模式点击次数
     },
 
     onLoad(options) {
@@ -64,6 +66,7 @@ Page({
         const objectId = this.data.srcList.length != 0 ? this.data.srcList[0] : 0;
         const api = new API(data.username, data.password);
         const type = e.currentTarget.dataset.type;
+        const vip = util.getStorage('vip');
 
         (async () => {
             let res = "";
@@ -86,7 +89,9 @@ Page({
                 }
                 case "position": {
                     const location = this.data.location;
-                    res = await api.defaultSign(data.activeId, null, location.longitude, location.latitude, location.addressText, null, null, null);
+                    const longitude = location.longitude + (!vip ? 0.0065 : 0); // 家人们谁懂啊, 学习通定位有偏差
+                    const latitude = location.latitude + (!vip ? 0.0060 : 0);
+                    res = await api.defaultSign(data.activeId, null, longitude, latitude, location.addressText, null, null, null);
                     break;
                 }
                 case "qrcode": {
@@ -203,8 +208,9 @@ Page({
         });
     },
 
-    rotateFn(e) {
-        var id = e.currentTarget.dataset.id
+    rotateFn(e) { // 卡片翻面
+        this.debug();
+        const id = e.currentTarget.dataset.id
         this.animation_main = wx.createAnimation({
             duration: 400,
             timingFunction: 'linear'
@@ -213,18 +219,15 @@ Page({
             duration: 400,
             timingFunction: 'linear'
         })
-        // 点击正面
 
-        if (id == 1) {
+        if (id == 1) { // 点击正面
             this.animation_main.rotateY(180).step()
             this.animation_back.rotateY(0).step()
             this.setData({
                 animationMain: this.animation_main.export(),
                 animationBack: this.animation_back.export(),
             })
-        }
-        // 点击背面
-        else {
+        } else { // 点击背面
             this.animation_main.rotateY(0).step()
             this.animation_back.rotateY(-180).step()
             this.setData({
@@ -234,6 +237,21 @@ Page({
         }
     },
 
+    debug() { // DEBUG
+        if (this.data.debugNum >= 5) {
+            this.setData({
+                'showChooseType': true,
+            })
+        } else {
+            this.data.debugNum += 1;
+        }
+    },
+
+    chooseType(e) { // 手动选择签到类型
+        this.setData({
+            ['data.type']: e.detail.value,
+        })
+    },
 
     onShareAppMessage() {
         const data = this.data.rawBase64.replace('=', '');
