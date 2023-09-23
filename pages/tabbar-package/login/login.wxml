@@ -1,3 +1,9 @@
 <!--pages/login/login.wxml-->
 
-正在登录...
+<view class="notice">
+    <t-notice-bar visible="true" marquee="{{config.notice}}" content="{{notice}}" prefixIcon="sound"></t-notice-bar>
+</view>
+
+<view class="swiper">
+    <t-swiper duration="500" interval="5000" list="{{swiperList}}" bind:click="lookImage" navigation="{{ {type: 'dots-bar'} }}"></t-swiper>
+</view>

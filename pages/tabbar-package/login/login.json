@@ -1,3 +1,7 @@
 {
-    "usingComponents": {}
+    "usingComponents": {
+        "t-swiper": "tdesign-miniprogram/swiper/swiper",
+        "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
+    },
+    "navigationBarTitleText": "正在登录..."
 }

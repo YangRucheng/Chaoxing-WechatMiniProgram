@@ -5,7 +5,16 @@ import config from '../../../api/config';
 
 Page({
     data: {
-
+        swiperList: [config.swiperList[Math.floor(Math.random() * config.swiperList.length)]],
+        notice: config.notice, // 公告
+        products: config.products,
+        config: {
+            'notice': {
+                speed: 60,
+                loop: -1,
+                delay: 0,
+            },
+        }
     },
 
     onLoad(options) {

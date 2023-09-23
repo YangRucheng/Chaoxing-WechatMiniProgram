@@ -1,33 +1,13 @@
 import util from '../../../api/util';
 import API from '../../../api/api';
 import log from '../../../api/log';
+import config from '../../../api/config';
 
 Page({
     data: {
-        swiperList: [
-            "https://tdesign.gtimg.com/miniprogram/images/swiper1.png",
-            "https://tdesign.gtimg.com/miniprogram/images/swiper2.png",
-            "https://tdesign.gtimg.com/miniprogram/images/swiper1.png",
-            "https://tdesign.gtimg.com/miniprogram/images/swiper2.png",
-        ],
-        notice: "欢迎大家使用小程序, 本小程序仅用于快捷签到, 请勿滥用, 谢谢合作！", // 公告
-        products: [{
-            'title': '青空校园服务',
-            'img': '/static/image/友情推荐/青空.jpg',
-            'appid': 'wx95b96403e1619df7',
-        }, {
-            'title': '青空超级至尊校园服务',
-            'img': '/static/image/友情推荐/青空.jpg',
-            'appid': 'wx95b96403e1619df7',
-        }, {
-            'title': '青空宇宙无敌超级至尊校园服务',
-            'img': '/static/image/友情推荐/青空.jpg',
-            'appid': 'wx95b96403e1619df7',
-        }, {
-            'title': '青空',
-            'img': '/static/image/友情推荐/青空.jpg',
-            'appid': 'wx95b96403e1619df7',
-        }],
+        swiperList: config.swiperList,
+        notice: config.notice   , // 公告
+        products: config.products,
         config: {
             'notice': {
                 speed: 60,

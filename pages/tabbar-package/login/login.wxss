@@ -1,1 +1,14 @@
 /* pages/tabbar-package/login/login.wxss */
+.notice {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f2f3ff;
+}
+
+.swiper {
+    margin: 25rpx;
+    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
+    border-left: 0.2px solid #e6e6e6;
+    border-top: 0.2px solid #e6e6e6;
+    border-radius: 20rpx;
+}
