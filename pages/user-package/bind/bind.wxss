@@ -60,13 +60,16 @@
 }
 
 .login-button {
+    width: 600rpx;
     display: flex;
     justify-content: space-between;
+    margin: 20rpx 0;
+    gap: 40rpx;
 }
 
 .login-button-item {
-    margin: 20rpx;
-    width: 280rpx;
+    display: inline-block;
+    flex: 1;
 }
 
 .account-list {

@@ -19,6 +19,7 @@ Page({
                         'inviter': options.inviter ? options.inviter : null, // 邀请者
                     })
                     .then(res => {
+                        log.info(res)
                         if (res.status == 0) {
                             this.showInfo("登录成功")
                             util.setStorage('vip', res.data.vip);

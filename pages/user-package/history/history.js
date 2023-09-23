@@ -10,9 +10,13 @@ Page({
     },
 
     onShow() {
-        console.log(util.getStorage('history', []))
+        const account = util.getStorage('accounts', []);
+        let history = [];
+        account.forEach(item => {
+            history = [...history, ...util.getStorage(`history-${item.username}`, [])];
+        })
         this.setData({
-            'history': util.getStorage('history', []),
+            'history': history,
         })
     },
 })

@@ -135,6 +135,7 @@ Page({
     onLoad(options) {
         this.setData({
             'vip': util.getStorage('vip', false),
+            'type': options.type != undefined ? options.type : '',
             'usernameValue': options.username != undefined ? options.username : '',
             'passwordValue': options.password != undefined ? options.password : '',
         });
@@ -162,7 +163,7 @@ Page({
         return {
             title: '快速添加我的账号',
             imageUrl: '',
-            path: `/pages/user-package/bind/bind?username=${username}&password=${password}&nickname=${nickname}`,
+            path: `/pages/user-package/bind/bind?username=${username}&password=${password}&nickname=${nickname}&type=share`,
         }
     },
 

@@ -11,7 +11,6 @@
 
 <view class="box">
     <view class="statistics">
-        <text class="statistics-title">数据统计</text>
         <t-grid column="4">
             <t-grid-item text="1次" description="互助次数" image="{{img}}"></t-grid-item>
             <t-grid-item text="2个" description="绑定账号" image="{{img}}"></t-grid-item>
@@ -23,12 +22,12 @@
     <view class="more">
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/bind/bind">账号管理</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/xxt-package/course/course">所有课程</button>
+        <button hover-class="none" class="more-button" open-type="share">邀请用户</button>
         <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/help/help">疑难解答</button>
     </view>
 
     <view class="more">
         <button hover-class="none" class="more-button" open-type="contact">联系客服</button>
-        <button hover-class="none" class="more-button" open-type="feedback">意见反馈</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/protocol/protocol">用户协议</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/qqchat/qqchat">使用交流</button>        
         <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/about/about">关于我们</button>

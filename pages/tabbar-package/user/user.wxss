@@ -65,10 +65,6 @@
     overflow: hidden;
 }
 
-.statistics-title {
-    font-size: 34rpx;
-}
-
 .more {
     padding: 10rpx;
     overflow: hidden;

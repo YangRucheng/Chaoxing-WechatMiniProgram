@@ -152,9 +152,9 @@ Page({
     },
 
     setHistory() { // 写入签到记录
-        let history = util.getStorage('history', []);
+        let history = util.getStorage(`history-${this.data.data.username}`, []);
         history = [...history, ...[this.data.data]];
-        util.setStorage('history', history);
+        util.setStorage(`history-${this.data.data.username}`, history);
     },
 
     handleAdd(e) {

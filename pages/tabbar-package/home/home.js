@@ -56,11 +56,12 @@ Page({
         })
     },
 
-    onShareAppMessage() {
+    onShareAppMessage() { // 邀请用户
+        const userInfo = util.getStorage('userInfo', {});
         return {
-            title: '测试',
+            title: '早八不迟到 ~',
             imageUrl: '',
-            path: '/pages/tabbar-package/login/login',
+            path: `/pages/tabbar-package/login/login?inviter=${userInfo.uid}`,
         }
     },
 
