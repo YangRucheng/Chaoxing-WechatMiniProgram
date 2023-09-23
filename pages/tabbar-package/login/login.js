@@ -22,6 +22,7 @@ Page({
                         log.info(res)
                         if (res.status == 0) {
                             this.showInfo("登录成功")
+                            // util.setStorage('vip', false);
                             util.setStorage('vip', res.data.vip);
                         } else
                             throw res.msg;

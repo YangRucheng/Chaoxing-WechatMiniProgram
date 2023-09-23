@@ -1,6 +1,6 @@
 Page({
     data: {
-        img: '/static/image/qrcode.jpg'
+        img: '/static/image/qrcode.png'
     },
 
 })

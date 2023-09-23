@@ -15,7 +15,7 @@
     </t-grid>
     <t-grid column="2" align="left">
         <t-grid-item text="签到记录" description="签到历史记录" layout="horizontal" image="/static/svg/home-历史.svg" bindtap="navigate" data-url="/pages/user-package/history/history"></t-grid-item>
-        <t-grid-item text="使用帮助" description="阅读使用教程" layout="horizontal" image="/static/svg/home-帮助.svg" bindtap="navigate" data-url="/pages/about-package/help/help"></t-grid-item>
+        <t-grid-item text="使用帮助" description="查看常见问题" layout="horizontal" image="/static/svg/home-帮助.svg" bindtap="navigate" data-url="/pages/about-package/help/help"></t-grid-item>
     </t-grid>
 </view>
 

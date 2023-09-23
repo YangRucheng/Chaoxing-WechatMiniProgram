@@ -6,7 +6,7 @@
     background-color: #f2f3ff;
 }
 
-.container-text{
+.container-text {
     margin: 30rpx 45rpx;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .container {
-    margin: 40rpx 30rpx;
+    margin: 30rpx;
     border-radius: 20rpx;
     width: 690rpx;
     height: 500rpx;
@@ -48,13 +48,20 @@
     transform: rotateY(-180deg);
 }
 
-.map{
+.map {
     width: 690rpx;
     height: 500rpx;
 }
 
+.radio-group {
+    margin: 30rpx;
+    border-radius: 24rpx;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .box {
-    margin: 600rpx 30rpx 30rpx;
+    margin: 30rpx;
     padding: 30rpx;
     box-shadow: 3rpx 3rpx 12rpx rgba(0, 0, 0, 0.15);
     background-color: white;
