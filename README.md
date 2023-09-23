@@ -5,6 +5,7 @@
 ## 使用教程
 
 [使用教程](./docs/README_CN.md)
+[Tutorial](./docs/README_EN.md)
 
 ## 免责声明
 
@@ -23,3 +24,15 @@
 > 依赖性：如果您的软件服务依赖于AGPL-3.0许可的组件，那么您的整个服务也必须采用AGPL-3.0许可。
 > 
 > 封闭源代码的限制：AGPL-3.0旨在防止使用者将开源软件作为基础，然后将其封闭为专有软件。通过要求源代码的公开可访问，它迫使使用者分享其修改，以保持其开源性质。
+
+## 了解 [御坂美琴](https://zh.moegirl.org.cn/zh-hans/御坂美琴)
+
++ [魔法禁目录](https://zh.moegirl.org.cn/魔法禁书目录)
+
++ [某科学的超电磁炮](https://zh.moegirl.org.cn/某科学的超电磁炮)
+
+## 友情推荐
+
++ [青空用户交流群](https://qm.qq.com/q/8QcvjVy45W)
+
++ [IDCEO论坛](https://bbs.idceo.cn)

@@ -4,4 +4,4 @@
 
 ## 交流
 
-[GitHub Discussion](./discussions)
+欢迎前往 [GitHub Discussion](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/discussions) 交流使用
