@@ -12,7 +12,7 @@
                 {
                     "name": "扫码进入小程序",
                     "pathName": "pages/tabbar-package/login/login",
-                    "query": "",
+                    "query": "inviter=1",
                     "launchMode": "default",
                     "scene": 1025
                 },

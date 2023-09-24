@@ -164,7 +164,6 @@ const setStorage = (key, value) => {
     Object.assign(cache, {
         [key]: value,
     })
-    console.log("写入缓存", key, value)
     wx.setStorageSync(key, value)
 }
 
