@@ -5,17 +5,17 @@
     <image class="user-avatar" mode="aspectFill" wx:else="{{userInfo.uid}}" src="https://www.loliapi.com/acg/pp"></image>
     <view class="user-info">
         <text class="user-name">{{userInfo.nickname?userInfo.nickname:'请先登录'}}</text>
-        <text class="user-id">{{userInfo.username?'UID #':''}}{{userInfo.username}}</text>
+        <text class="user-id">UID #{{uid}}</text>
     </view>
 </view>
 
 <view class="box">
     <view class="statistics">
         <t-grid column="4">
-            <t-grid-item text="1次" description="互助次数" image="{{img}}"></t-grid-item>
-            <t-grid-item text="2个" description="绑定账号" image="{{img}}"></t-grid-item>
-            <t-grid-item text="999天" description="会员天数" image="{{img}}"></t-grid-item>
-            <t-grid-item text="0位" description="邀请人数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="0次" description="代签次数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="{{accountNum}}个" description="绑定账号" image="{{img}}"></t-grid-item>
+            <t-grid-item text="{{vip}}天" description="会员天数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="{{inviteNum}}位" description="邀请人数" image="{{img}}"></t-grid-item>
         </t-grid>
     </view>
 

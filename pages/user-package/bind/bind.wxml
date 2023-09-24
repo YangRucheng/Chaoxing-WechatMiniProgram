@@ -7,7 +7,7 @@
             <image class="account-item-avatar" src="http://photo.chaoxing.com/p/{{item.uid}}_80" mode="aspectFill"></image>
             <view class="account-item-info">
                 <text class="account-item-nickname">{{item.nickname}}</text>
-                <text class="account-item-username">UID #{{item.username}}</text>
+                <text class="account-item-username">XXT #{{item.username}}</text>
             </view>
             <image class="logout" catch:tap="logout" data-index="{{index}}" src="/static/svg/bind-退出.svg" mode="aspectFit"></image>
         </view>

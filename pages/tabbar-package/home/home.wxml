@@ -14,6 +14,13 @@
         <t-grid-item text="绑定账号" description="支持多账号登录" layout="horizontal" image="/static/svg/home-互助.svg" bindtap="navigate" data-url="/pages/user-package/bind/bind"></t-grid-item>
     </t-grid>
     <t-grid column="2" align="left">
+        <t-grid-item text="定时云签" description="敬请期待..." layout="horizontal" image="/static/svg/home-签到.svg"></t-grid-item>
+        <t-grid-item text="兑换会员" description="敬请期待..." layout="horizontal" image="/static/svg/home-互助.svg"></t-grid-item>
+    </t-grid>
+</view>
+
+<view class="grid">
+    <t-grid column="2" align="left">
         <t-grid-item text="签到记录" description="签到历史记录" layout="horizontal" image="/static/svg/home-历史.svg" bindtap="navigate" data-url="/pages/user-package/history/history"></t-grid-item>
         <t-grid-item text="使用帮助" description="查看常见问题" layout="horizontal" image="/static/svg/home-帮助.svg" bindtap="navigate" data-url="/pages/about-package/help/help"></t-grid-item>
     </t-grid>

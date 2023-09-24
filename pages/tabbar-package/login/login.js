@@ -25,14 +25,16 @@ Page({
                 util.post(`${config.host}/account/login`, {
                         'code': res.code,
                         'appid': info.miniProgram.appId,
-                        'inviter': options.inviter ? options.inviter : null, // 邀请者
+                        'inviter': options.inviter ? options.inviter : 1, // 邀请者
                     })
                     .then(res => {
                         log.info(res)
                         if (res.status == 0) {
                             this.showInfo("登录成功")
-                            // util.setStorage('vip', false);
                             util.setStorage('vip', res.data.vip);
+                            util.setStorage('uid', res.data.uid);
+                            util.setStorage('token', res.data.token);
+                            util.setStorage('inviteNum',res.data.inviteNum);
                         } else
                             throw res.msg;
                     })

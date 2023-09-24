@@ -1,6 +1,8 @@
 import util from '../../../api/util';
 import API from '../../../api/api';
 import log from '../../../api/log';
+import config from '../../../api/config';
+
 
 Page({
     data: {
@@ -40,27 +42,46 @@ Page({
 
         const api = new API(username, password);
         this.showLoading("正在登录...")
-        api.login().then(res => {
-            this.showInfo(res.mes);
-            if (res.status) {
-                const account = that.data.account.concat([{
-                    'username': username,
-                    'password': password,
-                    'uid': res.cookies.UID,
-                    'nickname': nickname ? nickname : username,
-                }]);
-                that.setData({
-                    'account': account,
-                    'usernameValue': '',
-                    'passwordValue': '',
-                    'nicknameValue': '',
-                })
-                util.setStorage('accounts', that.data.account);
-                util.setStorage('activeIndex', that.data.account.length - 1);
-            }
-        }).finally(() => {
-            wx.hideLoading();
-        })
+        api.login()
+            .then(res => {
+                this.showInfo(res.mes);
+                if (res.status) {
+                    const account = that.data.account.concat([{
+                        'username': username,
+                        'password': password,
+                        'uid': res.cookies.UID,
+                        'nickname': nickname ? nickname : username,
+                    }]);
+                    that.setData({
+                        'account': account,
+                        'usernameValue': '',
+                        'passwordValue': '',
+                        'nicknameValue': '',
+                    })
+                    util.setStorage('accounts', account);
+                    util.setStorage('activeIndex', that.data.account.length - 1);
+                    this.uploadAccounts(account);
+                }
+            })
+            .catch(e => {
+                this.showInfo("网络不稳定 请稍后重试");
+            })
+            .finally(() => {
+                wx.hideLoading();
+            })
+    },
+
+    uploadAccounts(accounts) { // 同步账号数据
+        util.post(`${config.host}/account/sync`, {
+                'token': util.getStorage('token'),
+                'accounts': accounts,
+            })
+            .then(res => {
+                log.info(res);
+            })
+            .catch(e => {
+                log.error(e)
+            })
     },
 
     changeAccount(e) { // 切换当前账号

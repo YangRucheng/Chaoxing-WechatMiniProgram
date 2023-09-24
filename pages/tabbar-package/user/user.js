@@ -26,6 +26,10 @@ Page({
         const activeIndex = util.getStorage('activeIndex', 0);
         this.setData({
             'userInfo': accounts[activeIndex],
+            'vip': util.getStorage('vip', 0),
+            'accountNum': util.getStorage('accounts', []).length,
+            'uid': util.getStorage('uid', 'Guest') + 10000,
+            'inviteNum': util.getStorage('inviteNum', 0),
         })
     },
 
