@@ -1,6 +1,6 @@
 <!--pages/signin/signin.wxml-->
 <!-- ["拍照签到", "普通签到", "二维码签到", "手势签到", "位置签到", "签到码签到"] -->
-<view class="notice" wx:if="{{notice}}">
+<view class="notice">
     <t-notice-bar visible="true" marquee="{{config.notice}}" content="{{notice}}" prefixIcon="sound"></t-notice-bar>
 </view>
 
@@ -24,12 +24,12 @@
 
 <view style="height: 550rpx"></view>
 
-<t-radio-group value="{{data.type}}" bind:change="chooseType" borderless t-class="radio-group" wx:if="{{showChooseType}}">
-    <t-radio label="拍照签到" value="0"></t-radio>
-    <t-radio label="签到码签到" value="3"></t-radio>
-    <t-radio label="位置签到" value="4"></t-radio>
-    <t-radio label="二维码签到" value="2"></t-radio>
-</t-radio-group>
+<view class="box-picker">
+    <t-cell title="签到类型" arrow hover note="{{config.typeConfig[data.type]}}" bind:click="onPicker"></t-cell>
+</view>
+<t-picker visible="{{pickerVisible}}" value="{{[data.type]}}" data-key="city" title="签到类型" cancelBtn="取消" confirmBtn="确认" bindchange="pickerChange">
+    <t-picker-item options="{{pickerList}}"></t-picker-item>
+</t-picker>
 
 <!-- 普通/图片 -->
 <view wx:if="{{data.type==0 || data.type==1}}">
@@ -85,8 +85,7 @@
         </view>
         <view class="button-box">
             <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
-            <t-button t-class="button" wx:if="{{vip}}" theme="primary" size="large" bindtap="autoGetLocation">获取位置</t-button>
-            <t-button t-class="button" wx:else="{{vip}}" theme="primary" size="large" bindtap="chooseLocation">选择位置</t-button>
+            <t-button t-class="button" theme="primary" size="large" bindtap="chooseLocation">选择位置</t-button>
             <t-button t-class="button" theme="primary" size="large" bindtap="signin" data-type="qrcode">扫码签到</t-button>
         </view>
     </view>

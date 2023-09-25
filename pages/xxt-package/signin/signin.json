@@ -5,6 +5,9 @@
         "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar",
         "t-button": "tdesign-miniprogram/button/button",
         "t-radio": "tdesign-miniprogram/radio/radio",
-        "t-radio-group": "tdesign-miniprogram/radio-group/radio-group"
+        "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
+        "t-cell": "tdesign-miniprogram/cell/cell",
+        "t-picker": "tdesign-miniprogram/picker/picker",
+        "t-picker-item": "tdesign-miniprogram/picker-item/picker-item"
     }
 }

@@ -30,6 +30,24 @@ Page({
         html: "", // 预签到 HTML
         showChooseType: false, // 是否显示手动选择类型
         debugNum: 0, // 进入 debug 模式点击次数
+        pickerList: typeConfig.map((item, index) => {
+            return {
+                'label': item,
+                'value': index,
+            }
+        }),
+    },
+
+    onPicker(e) { // 点击选择器
+        this.setData({
+            'pickerVisible': true,
+        })
+    },
+
+    pickerChange(e) { // 选择器修改
+        this.setData({
+            ['data.type']: e.detail.value[0],
+        })
     },
 
     onLoad(options) {
@@ -45,7 +63,7 @@ Page({
             })
             const api = new API(data.username, data.password);
             this.setData({
-                'notice': type == 'help' ? `你正在为用户${data.username}代签!` : '',
+                'notice': type == 'help' ? `你正在为用户${data.username}代签!` : config.notice,
                 'data': data,
                 'rawBase64': options.data,
                 'type': type,
@@ -58,6 +76,7 @@ Page({
             wx.hideLoading();
             const html = await api.beforeSign(data.activeId, data.courseId, data.classId);
             this.data.html = html;
+            console.log(html);
         })();
     },
 
@@ -131,19 +150,26 @@ Page({
     autoGetLocation() { // 自动获取位置信息
         const html = this.data.html;
         const token = util.getStorage('token', 'no-token');
-        this.showLoading("正在获取签到位置")
+        this.showLoading("正在解析签到位置")
         util.post(`${config.host}/signin/getLocation`, {
                 'html': html,
                 'token': token,
             })
             .then(res => {
-                log.info(res)
+                log.info(res);
+                if (res.status != 0)
+                    throw "解析失败 请手动获取";
+                this.showInfo(res.msg);
                 this.setData({
                     'location': Object.assign(this.data.location, res.data.location),
                 })
             })
             .catch(e => {
-                log.error(e)
+                log.error(e);
+                this.showInfo(e);
+                this.setData({
+                    'vip': false,
+                })
             })
             .finally(() => {
                 this.hideLoading();
@@ -247,13 +273,7 @@ Page({
         }
     },
 
-    chooseType(e) { // 手动选择签到类型
-        this.setData({
-            ['data.type']: e.detail.value,
-        })
-    },
-
-    onShareAppMessage() {
+    onShareAppMessage() { // 分享
         const data = this.data.rawBase64.replace('=', '');
         console.log("请求代签", `data=${data}`)
         return {

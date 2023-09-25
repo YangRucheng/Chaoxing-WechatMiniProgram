@@ -24,7 +24,7 @@
 }
 
 .container {
-    margin: 30rpx;
+    margin: 130rpx 30rpx 30rpx;
     border-radius: 20rpx;
     width: 690rpx;
     height: 500rpx;
@@ -58,6 +58,14 @@
     border-radius: 24rpx;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-picker{
+    margin: 30rpx;
+    box-shadow: 3rpx 3rpx 12rpx rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 20rpx;
+    overflow: hidden;
 }
 
 .box {
