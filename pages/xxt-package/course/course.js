@@ -8,7 +8,7 @@ Page({
     },
 
     onLoad(options) {
-        console.log("获取课程...")
+        // console.log("获取课程...")
         const accounts = util.getStorage('accounts', []);
         const activeIndex = util.getStorage('activeIndex', -1);
         if (accounts.length == 0) {
@@ -33,7 +33,17 @@ Page({
             })
     },
 
-    onShow() {},
+    onPullDownRefresh() { // 刷新
+        wx.showModal({
+                title: '确认重新获取课程吗?',
+                content: '获取次数过多可能造成风控',
+            })
+            .then(res => {
+                if (res.confirm) {
+                    this.onLoad();
+                }
+            })
+    },
 
     navigate(e) { // 进入活动列表页面
         const account = this.data.account;

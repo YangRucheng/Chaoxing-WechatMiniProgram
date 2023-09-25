@@ -13,4 +13,6 @@
     </view>
 </view>
 
+<t-fab icon="/static/svg/course-刷新.svg" bind:click="onPullDownRefresh" aria-label="刷新"></t-fab>
+
 <view style="height: 60rpx;"></view>

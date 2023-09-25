@@ -50,7 +50,15 @@ Page({
     },
 
     onPullDownRefresh() {
-        this.onLoad(this.data.options);
+        wx.showModal({
+                title: '确认重新获取课程吗?',
+                content: '获取次数过多可能造成风控',
+            })
+            .then(res => {
+                if (res.confirm) {
+                    this.onLoad(this.data.options);
+                }
+            })
     },
 
     showLoading(msg) {
