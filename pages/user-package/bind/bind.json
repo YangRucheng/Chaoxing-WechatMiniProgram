@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "账号管理",
     "usingComponents": {
+        "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
         "t-button": "tdesign-miniprogram/button/button"
     }
 }

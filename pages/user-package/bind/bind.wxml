@@ -23,12 +23,16 @@
     </view>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-账户.svg" mode="aspectFill"></image>
-        <input class="input-value" value="{{usernameValue}}" type="number" placeholder="手机号" bindinput="input" data-key="username"></input>
+        <input class="input-value" value="{{usernameValue}}" type="number" placeholder="学习通手机号" bindinput="input" data-key="username"></input>
     </view>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-密码.svg" mode="aspectFill"></image>
         <input class="input-value" value="{{passwordValue}}" type="text" password="true" placeholder="密码" bindinput="input" data-key="password"></input>
     </view>
+
+    <text class="openPrivacyContract" bind:tap="openPrivacyContract">用户隐私协议</text>
+    <t-checkbox-group value="{{agreePrivacyAuthorization}}" bind:change="agreePrivacyAuthorization" options="{{options}}" borderless="true"></t-checkbox-group>
+
     <view class="login-button">
         <t-button t-class="login-button-item" theme="primary" size="large" variant="outline" open-type="share" wx:if="{{type!='share'}}">分享账号</t-button>
         <t-button t-class="login-button-item" theme="primary" size="large" bindtap="login">添加账号</t-button>
