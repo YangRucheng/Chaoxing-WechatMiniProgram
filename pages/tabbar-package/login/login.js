@@ -18,13 +18,12 @@ Page({
     },
 
     onLoad(options) {
-        const info = wx.getAccountInfoSync();
         wx.login()
             .then(res => {
                 this.showLoading("正在登录")
                 util.post(`${config.host}/account/login`, {
                         'code': res.code,
-                        'appid': info.miniProgram.appId,
+                        'appid': util.info.miniProgram.appId,
                         'inviter': options.inviter ? options.inviter : 1, // 邀请者
                     })
                     .then(res => {

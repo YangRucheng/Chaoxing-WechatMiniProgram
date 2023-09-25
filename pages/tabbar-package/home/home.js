@@ -6,8 +6,8 @@ import config from '../../../api/config';
 Page({
     data: {
         swiperList: config.swiperList,
-        notice: config.notice   , // 公告
-        products: config.products,
+        notice: config.notice, // 公告
+        products: config.products.filter(item => item.appid != util.info.miniProgram.appId),
         config: {
             'notice': {
                 speed: 60,
