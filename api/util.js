@@ -156,7 +156,6 @@ var cache = {};
 
 /**
  * 写入缓存
- * 未来可能实现多设备缓存同步
  * @param {string} key 
  * @param {object} value 
  */
@@ -171,6 +170,7 @@ const setStorage = (key, value) => {
  * 读取缓存
  * 未来可能实现多设备缓存同步
  * @param {string} key 
+ * @param {*} defaultValue
  */
 const getStorage = (key, defaultValue = null) => {
     if (cache[key] != undefined)
@@ -189,4 +189,5 @@ module.exports = {
     uploadFile,
     setStorage,
     getStorage,
+    info: wx.getAccountInfoSync(),
 }

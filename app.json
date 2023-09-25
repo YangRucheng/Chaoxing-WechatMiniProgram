@@ -32,7 +32,8 @@
         "t-message": "tdesign-miniprogram/message/message",
         "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
         "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
-        "t-input": "tdesign-miniprogram/input/input"
+        "t-input": "tdesign-miniprogram/input/input",
+        "t-fab": "tdesign-miniprogram/fab/fab"
     },
     "requiredPrivateInfos": [
         "chooseLocation"
