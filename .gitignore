@@ -7,4 +7,5 @@ static
 
 **/config.js
 
+project.config.json
 project.private.config.json
