@@ -140,27 +140,32 @@ class API {
      * 
      * @param {*} enc 
      */
-    defaultSign = async (activeId, objectId=null, longitude = null, latitude = null, addressText = null, signCode = null, role = null, enc = null) => {
-        const url = 'https://mobilelearn.chaoxing.com/pptSign/stuSignajax'
+    defaultSign = async (activeId, objectId = null, longitude = null, latitude = null, addressText = null, signCode = null, role = null, enc = null) => {
+        const url = 'https://mobilelearn.chaoxing.com/pptSign/stuSignajax';
         const res = await util.getText(url, {
             'activeId': activeId,
             'objectId': objectId,
 
-            'longitude': longitude,
-            'latitude': latitude,
+            'uid': "272084881",
+            'clientip': '',
+            'useragent': '',
+
+            'longitude': longitude ? longitude : -1,
+            'latitude': latitude ? latitude : -1,
             'address': addressText,
 
             'signCode': signCode,
-            'appType': '15',
-            'ifTiJiao': '1',
             'role': role,
             'enc': enc,
+
+            'appType': '15',
+            'ifTiJiao': '1',
             'fid': '0',
         }, this.cookies)
         console.log("默认签到/图片签到", res);
         return res;
     }
-    
+
     /**
      * 获取超星云盘token
      */
@@ -184,33 +189,9 @@ class API {
         const url = 'http://passport2.chaoxing.com/mooc/accountManage'
         const html = await util.getText(url, {}, this.cookies)
 
-        let nameReg = /id="messageName">(.*?)<\/p>/mi
-        if (nameReg.test(html))
-            name = nameReg.exec(html)[1]
-
-        let phoneReg = /id="messagePhone">((\+?0?86\-?)?1[3-9]\d{9})<\/span>/mi
-        if (phoneReg.test(html))
-            phone = phoneReg.exec(html)[1]
-
-        let numberCardReg = /xuehao.*?:(\d+)<\/p>/mi
-        if (numberCardReg.test(html))
-            numberCard = numberCardReg.exec(html)[1]
-
-        let avatarReg = /"(http:\/\/photo.chaoxing.com\/p\/.*?)"/mi
-        if (avatarReg.test(html))
-            avatar = avatarReg.exec(html)[1]
-
-        let schoolReg = /<ul class="listCon" id="messageFid">\s+<li> (\S+)/mi
-        if (schoolReg.test(html))
-            school = schoolReg.exec(html)[1]
-
-        let sexReg = /checked"\s*?value="\d{1}"><\/i>(男|女|male|female)\s*<\/span>/mi
-        if (sexReg.test(html))
-            sex = sexReg.exec(html)[1]
-
         const entity = {
             'name': name.trim(),
-            'sex': sex.trim().replace('female', '女').replace('male', '男'),
+            'sex': sex.trim(),
             'phone': phone.trim(),
             'numberCard': numberCard.trim(),
             'avatar': avatar.trim(),
@@ -218,7 +199,7 @@ class API {
         }
 
         console.log("UserEntity", entity)
-        return;
+        return entity;
     }
 
 }

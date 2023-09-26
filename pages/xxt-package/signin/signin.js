@@ -76,7 +76,7 @@ Page({
             wx.hideLoading();
             const html = await api.beforeSign(data.activeId, data.courseId, data.classId);
             this.data.html = html;
-            console.log(html);
+            // console.log(html);
         })();
     },
 
@@ -90,7 +90,7 @@ Page({
         (async () => {
             let res = "";
             switch (type) {
-                case "picture": {
+                case "picture": { // 图片/普通
                     if (objectId == 0) {
                         const ok = await wx.showModal({
                             title: '确认直接签到吗?',
@@ -102,18 +102,18 @@ Page({
                     res = await api.defaultSign(data.activeId, objectId);
                     break;
                 }
-                case "code": {
+                case "code": { // 签到码/手势
                     res = await api.defaultSign(data.activeId, null, null, null, null, this.data.signCode, null, null);
                     break;
                 }
-                case "position": {
+                case "position": { // 位置
                     const location = this.data.location;
                     const longitude = location.longitude + (!vip ? 0.0065 : 0); // 家人们谁懂啊, 学习通定位有偏差
                     const latitude = location.latitude + (!vip ? 0.0060 : 0);
                     res = await api.defaultSign(data.activeId, null, longitude, latitude, location.addressText, null, null, null);
                     break;
                 }
-                case "qrcode": {
+                case "qrcode": { // 二维码
                     const qrcode = await wx.scanCode();
                     console.log("扫码结果", qrcode)
                     let params = {};
@@ -125,7 +125,9 @@ Page({
                     });
                     const enc = params.enc;
                     const location = this.data.location;
-                    res = await api.defaultSign(data.activeId, null, location.longitude, location.latitude, location.addressText, null, null, enc);
+                    const longitude = location.longitude + (!vip ? 0.0065 : 0); // 家人们谁懂啊, 学习通定位有偏差
+                    const latitude = location.latitude + (!vip ? 0.0060 : 0);
+                    res = await api.defaultSign(data.activeId, null, longitude, latitude, location.addressText, null, null, enc);
                     break;
                 }
             }
