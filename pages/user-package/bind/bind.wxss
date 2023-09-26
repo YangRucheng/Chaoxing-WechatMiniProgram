@@ -59,10 +59,14 @@
     background-color: rgb(0, 0, 0, 0);
 }
 
+.privacy{
+    overflow: hidden;
+    font-size: 26rpx;
+    margin: 20rpx 0;
+}
+
 .openPrivacyContract {
     color: #0b7dff;
-    font-size: 26rpx;
-    margin: 20rpx 0 0;
 }
 
 .login-button {

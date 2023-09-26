@@ -1,7 +1,7 @@
 <!--pages/bind/bind.wxml-->
 
 <view class="box" wx:if="{{account.length}}">
-    <text class="account-title">{{account.length==1?'账号管理':'切换账号'}}</text>
+    <text class="account-title">{{account.length==1?'帐号管理':'切换账号'}}</text>
     <view class="account-list">
         <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" catch:longpress="changeNick" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
             <image class="account-item-avatar" src="http://photo.chaoxing.com/p/{{item.uid}}_80" mode="aspectFill"></image>
@@ -15,23 +15,24 @@
 </view>
 
 <view class="box" wx:if="{{account.length<2 || vip}}">
-    <text class="login-title">添加账号</text>
-    <text class="login-remark">注: 仅支持超星账号</text>
+    <text class="login-title">添加学习通账号</text>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-备注.svg" mode="aspectFill"></image>
         <input class="input-value" value="{{nicknameValue}}" type="text" placeholder="备注 (非必填)" bindinput="input" data-key="nickname"></input>
     </view>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-账户.svg" mode="aspectFill"></image>
-        <input class="input-value" value="{{usernameValue}}" type="number" placeholder="学习通手机号" bindinput="input" data-key="username"></input>
+        <input class="input-value" value="{{usernameValue}}" type="number" placeholder="帐号 (手机号)" bindinput="input" data-key="username"></input>
     </view>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-密码.svg" mode="aspectFill"></image>
         <input class="input-value" value="{{passwordValue}}" type="text" password="true" placeholder="密码" bindinput="input" data-key="password"></input>
     </view>
 
-    <text class="openPrivacyContract" bind:tap="openPrivacyContract">用户隐私协议</text>
-    <t-checkbox-group value="{{agreePrivacyAuthorization}}" bind:change="agreePrivacyAuthorization" options="{{options}}" borderless="true"></t-checkbox-group>
+    <view class="privacy">
+        <text>我已阅读并同意</text>
+        <text class="openPrivacyContract" bind:tap="openPrivacyContract">《用户隐私协议》</text>
+    </view>
 
     <view class="login-button">
         <t-button t-class="login-button-item" theme="primary" size="large" variant="outline" open-type="share" wx:if="{{type!='share'}}">分享账号</t-button>

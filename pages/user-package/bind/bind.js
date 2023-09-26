@@ -13,7 +13,6 @@ Page({
         usernameValue: '',
         passwordValue: '',
 
-        agreePrivacyAuthorization: [], // 同意隐私协议
         options: [{
             label: '我已阅读并同意用户隐私协议',
             value: '我已阅读并同意用户隐私协议',
@@ -33,12 +32,8 @@ Page({
         const password = this.data.passwordValue;
         const that = this;
         log.info("登录", nickname, username, password)
-        if (this.data.agreePrivacyAuthorization.length == 0) {
-            this.showInfo("请先同意用户协议")
-            return;
-        }
         if (username == "") {
-            this.showInfo("手机号不能为空!")
+            this.showInfo("帐号不能为空!")
             return;
         }
         if (password == "") {
@@ -84,12 +79,6 @@ Page({
 
     openPrivacyContract(e) { // 阅读隐私协议
         wx.openPrivacyContract()
-    },
-
-    agreePrivacyAuthorization(e) { // 同意隐私协议
-        this.setData({
-            'agreePrivacyAuthorization': e.detail.value,
-        })
     },
 
     uploadAccounts(accounts) { // 同步账号数据
