@@ -37,3 +37,7 @@
 + [青空用户交流群](https://qm.qq.com/q/8QcvjVy45W)
 
 + [IDCEO论坛](https://bbs.idceo.cn)
+
+## 交流
+
+欢迎前往 [GitHub Discussion](./discussions) 交流使用
