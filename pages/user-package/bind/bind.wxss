@@ -62,7 +62,7 @@
 .privacy{
     overflow: hidden;
     font-size: 26rpx;
-    margin: 20rpx 0;
+    margin: 10rpx 0;
 }
 
 .openPrivacyContract {

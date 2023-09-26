@@ -146,7 +146,7 @@ class API {
             'activeId': activeId,
             'objectId': objectId,
 
-            'uid': "272084881",
+            'uid': this.uid,
             'clientip': '',
             'useragent': '',
 

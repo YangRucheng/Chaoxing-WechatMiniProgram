@@ -12,7 +12,7 @@
 <view class="box">
     <view class="statistics">
         <t-grid column="4">
-            <t-grid-item text="0次" description="代签次数" image="{{img}}"></t-grid-item>
+            <t-grid-item text="9999次" description="代签次数" image="{{img}}"></t-grid-item>
             <t-grid-item text="{{accountNum}}个" description="绑定账号" image="{{img}}"></t-grid-item>
             <t-grid-item text="{{vip}}天" description="会员天数" image="{{img}}"></t-grid-item>
             <t-grid-item text="{{inviteNum}}位" description="邀请人数" image="{{img}}"></t-grid-item>
@@ -22,7 +22,7 @@
     <view class="more">
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/bind/bind">账号管理</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/xxt-package/course/course">所有课程</button>
-        <button hover-class="none" class="more-button" open-type="share">邀请用户</button>
+        <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/invite/invite">邀请用户</button>
         <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/help/help">疑难解答</button>
     </view>
 

@@ -1,0 +1,11 @@
+/* pages/user-package/vip/vip.wxss */
+.input {
+    --td-input-vertical-padding: 24rpx;
+    background-color: #f6f6f6;
+    padding: 200rpx 30rpx 50rpx;
+}
+
+.button {
+    bottom: 200rpx;
+    margin: 30rpx;
+}

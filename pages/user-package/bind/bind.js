@@ -12,11 +12,6 @@ Page({
         nicknameValue: '',
         usernameValue: '',
         passwordValue: '',
-
-        options: [{
-            label: '我已阅读并同意用户隐私协议',
-            value: '我已阅读并同意用户隐私协议',
-        }]
     },
 
     input(e) { // 输入绑定
@@ -77,8 +72,20 @@ Page({
             })
     },
 
-    openPrivacyContract(e) { // 阅读隐私协议
-        wx.openPrivacyContract()
+    openPrivacyContract(e) { // 用户服务协议/隐私政策
+        const type = e.currentTarget.dataset.type;
+        switch (type) {
+            case "fuwu": {
+                wx.redirectTo({
+                    url: '/pages/about-package/protocol/protocol',
+                })
+                return;
+            }
+            case "yinsi": {
+                wx.openPrivacyContract();
+                return;
+            }
+        }
     },
 
     uploadAccounts(accounts) { // 同步账号数据

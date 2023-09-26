@@ -9,7 +9,8 @@
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "我真的超爱学习~",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f6f6f6"
     },
     "tabBar": {
         "custom": true,
@@ -33,7 +34,8 @@
         "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
         "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
         "t-input": "tdesign-miniprogram/input/input",
-        "t-fab": "tdesign-miniprogram/fab/fab"
+        "t-fab": "tdesign-miniprogram/fab/fab",
+        "t-button": "tdesign-miniprogram/button/button"
     },
     "requiredPrivateInfos": [
         "chooseLocation"
@@ -60,7 +62,9 @@
             "root": "pages/user-package",
             "pages": [
                 "bind/bind",
-                "history/history"
+                "history/history",
+                "vip/vip",
+                "invite/invite"
             ]
         }
     ],

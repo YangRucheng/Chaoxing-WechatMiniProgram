@@ -1,0 +1,9 @@
+<!--pages/user-package/vip/vip.wxml-->
+
+<view class="input">
+    <t-input placeholder="请输入密钥" bind:change="input" borderless="{{true}}" style="border: 2rpx solid rgba(220,220,220,1); border-radius: 12rpx;"></t-input>
+</view>
+
+<view class="button">
+  <t-button theme="primary" size="large" bind:tap="activation" block>立即绑定密钥</t-button>
+</view>
