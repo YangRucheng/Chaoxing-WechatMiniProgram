@@ -6,12 +6,13 @@
  * @param {object} data 
  * @param {object} cookies
  */
-const get = (url, data = {}, cookies = {}) => {
+const get = (url, data = {}, cookies = {}, timeout = 15000) => {
     return new Promise((resolve, reject) => {
         wx.request({
             method: "GET",
             url: url,
             data: data,
+            timeout: timeout,
             header: {
                 'content-type': 'application/json',
                 'cookie': stringifyCookie(cookies),
@@ -35,7 +36,7 @@ const get = (url, data = {}, cookies = {}) => {
  * @param {object} data 
  * @param {object} cookies
  */
-const post = (url, data = {}, cookies = {}) => {
+const post = (url, data = {}, cookies = {}, timeout = 15000) => {
     return new Promise((resolve, reject) => {
         wx.showLoading({
             title: '请稍候',
@@ -45,6 +46,7 @@ const post = (url, data = {}, cookies = {}) => {
             method: "POST",
             url: url,
             data: data,
+            timeout: timeout,
             header: {
                 'content-type': 'application/json',
                 'cookie': stringifyCookie(cookies),

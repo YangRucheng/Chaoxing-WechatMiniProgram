@@ -43,7 +43,7 @@ Page({
                         'code': res.code,
                         'appid': util.info.miniProgram.appId,
                         'inviter': options.inviter ? options.inviter : 1, // 邀请者
-                    })
+                    }, {}, 8000)
                     .then(res => {
                         log.info(res)
                         if (res.status == 0) {
@@ -57,7 +57,7 @@ Page({
                     })
                     .catch(e => {
                         log.error("登录失败", e)
-                        this.showInfo("登录失败")
+                        this.showInfo("登录失败\n不影响签到")
                     })
                     .finally(() => {
                         this.hideLoading();
