@@ -1,0 +1,16 @@
+<!--pages/xxt-package/qrcodesignin/qrcodesignin.wxml-->
+
+<view class="box">
+    <view class="users-item" wx:for="{{results}}" wx:key="index">
+        <view class="users-item-image">
+            <t-image src="https://photo.chaoxing.com/p/{{item.uid}}_80" width="60" height="60" shape="round" mode="aspectFill"></t-image>
+        </view>
+        <view class="users-item-info">
+            <text class="users-item-title">{{item.result}}</text>
+            <text class="users-item-other">姓名: {{item.nickname}}</text>
+            <text class="users-item-other">帐号: {{item.username}}</text>
+        </view>
+    </view>
+</view>
+
+<t-button t-class="button" theme="primary" size="large" bindtap="onLoad">扫码签到</t-button>

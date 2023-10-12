@@ -38,8 +38,14 @@
         "t-button": "tdesign-miniprogram/button/button"
     },
     "requiredPrivateInfos": [
-        "chooseLocation"
+        "chooseLocation",
+        "getLocation"
     ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "获取您的位置用于签到"
+        }
+    },
     "subpackages": [
         {
             "root": "pages/about-package",
@@ -55,7 +61,8 @@
             "pages": [
                 "course/course",
                 "activity/activity",
-                "signin/signin"
+                "signin/signin",
+                "qrcodesignin/qrcodesignin"
             ]
         },
         {

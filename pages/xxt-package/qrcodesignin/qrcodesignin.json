@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "t-button": "tdesign-miniprogram/button/button"
+    },
+    "navigationBarTitleText": "二维码签到"
+}
