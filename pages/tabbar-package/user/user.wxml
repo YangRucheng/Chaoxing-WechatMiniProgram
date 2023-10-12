@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 
 <view class="user" bindtap="navigate" data-url="/pages/user-package/bind/bind">
-    <image class="user-avatar" mode="aspectFill" wx:if="{{userInfo.uid}}" src="http://photo.chaoxing.com/p/{{userInfo.uid}}_80"></image>
+    <image class="user-avatar" mode="aspectFill" wx:if="{{userInfo.uid}}" src="https://photo.chaoxing.com/p/{{userInfo.uid}}_80"></image>
     <image class="user-avatar" mode="aspectFill" wx:else="{{userInfo.uid}}" src="https://www.loliapi.com/acg/pp"></image>
     <view class="user-info">
         <text class="user-name">{{userInfo.nickname?userInfo.nickname:'请先登录'}}</text>

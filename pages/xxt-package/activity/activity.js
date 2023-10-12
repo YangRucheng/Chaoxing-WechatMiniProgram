@@ -27,7 +27,8 @@ Page({
             wx.setNavigationBarTitle({
                 title: `活动列表 - ${courseName}`,
             })
-            wx.hideLoading();
+            this.hideLoading();
+            this.showInfo("获取活动成功");
         })
     },
 

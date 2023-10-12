@@ -29,7 +29,8 @@ Page({
                 })
             })
             .finally(() => {
-                wx.hideLoading();
+                this.hideLoading();
+                this.showInfo("获取课程成功")
             })
     },
 
