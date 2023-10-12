@@ -3,7 +3,7 @@
 <view class="box" wx:if="{{account.length}}">
     <text class="account-title">{{account.length==1?'帐号管理':'切换账号'}}</text>
     <view class="account-list">
-        <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" catch:longpress="changeNick" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
+        <view class="account-item {{index==activeIndex?'active-item':''}}" wx:if="{{index<2 || vip}}" wx:for="{{account}}" wx:key="index" catch:tap="changeAccount" data-index="{{index}}">
             <image class="account-item-avatar" src="http://photo.chaoxing.com/p/{{item.uid}}_80" mode="aspectFill"></image>
             <view class="account-item-info">
                 <text class="account-item-nickname">{{item.nickname}}</text>
@@ -16,10 +16,6 @@
 
 <view class="box" wx:if="{{account.length<2 || vip}}">
     <text class="login-title">添加学习通帐号</text>
-    <view class="input">
-        <image class="input-icon" src="/static/svg/bind-备注.svg" mode="aspectFill"></image>
-        <input class="input-value" value="{{nicknameValue}}" type="text" placeholder="备注 (非必填)" bindinput="input" data-key="nickname"></input>
-    </view>
     <view class="input">
         <image class="input-icon" src="/static/svg/bind-账户.svg" mode="aspectFill"></image>
         <input class="input-value" value="{{usernameValue}}" type="number" placeholder="帐号 (手机号)" bindinput="input" data-key="username"></input>

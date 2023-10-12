@@ -9,7 +9,6 @@ Page({
         account: [],
         activeIndex: 0,
 
-        nicknameValue: '',
         usernameValue: '',
         passwordValue: '',
     },
@@ -22,11 +21,10 @@ Page({
     },
 
     login(e) { // 添加账号
-        const nickname = this.data.nicknameValue;
         const username = this.data.usernameValue;
         const password = this.data.passwordValue;
         const that = this;
-        log.info("登录", nickname, username, password)
+        log.info("登录", username, password)
         if (username == "") {
             this.showInfo("帐号不能为空!")
             return;
@@ -46,22 +44,25 @@ Page({
             .then(res => {
                 this.showInfo(res.mes);
                 if (res.status) {
-                    const account = that.data.account.concat([{
-                        'username': username,
-                        'password': password,
-                        'uid': res.cookies.UID,
-                        'nickname': nickname ? nickname : username,
-                    }]);
-                    that.setData({
-                        'account': account,
-                        'usernameValue': '',
-                        'passwordValue': '',
-                        'nicknameValue': '',
-                        'activeIndex': that.data.account.length - 1,
-                    })
-                    util.setStorage('accounts', account);
-                    util.setStorage('activeIndex', that.data.account.length - 1);
-                    this.uploadAccounts(account);
+                    api.getUserInfo()
+                        .then(userinfo => {
+                            log.info("登录成功", userinfo);
+                            const account = that.data.account.concat([{
+                                'username': username,
+                                'password': password,
+                                'uid': res.cookies.UID,
+                                'nickname': userinfo.name,
+                                'school': userinfo.school,
+                            }]);
+                            that.setData({
+                                'account': account,
+                                'usernameValue': '',
+                                'passwordValue': '',
+                                'activeIndex': that.data.account.length - 1,
+                            })
+                            util.setStorage('accounts', account);
+                            util.setStorage('activeIndex', that.data.account.length - 1);
+                        })
                 }
             })
             .catch(e => {
@@ -88,44 +89,12 @@ Page({
         }
     },
 
-    uploadAccounts(accounts) { // 同步账号数据
-        util.post(`${config.host}/account/sync`, {
-                'token': util.getStorage('token'),
-                'accounts': accounts,
-            })
-            .then(res => {
-                log.info(res);
-            })
-            .catch(e => {
-                log.error(e)
-            })
-    },
-
     changeAccount(e) { // 切换当前账号
         const index = e.currentTarget.dataset.index;
         this.setData({
             'activeIndex': index,
         });
         util.setStorage('activeIndex', index);
-    },
-
-    changeNick(e) { // 修改账号备注
-        const index = e.currentTarget.dataset.index;
-        const account = this.data.account;
-        wx.showModal({
-                title: '修改账号备注',
-                content: account[index].nickname,
-                editable: true,
-            })
-            .then(res => {
-                if (res.confirm) {
-                    account[index].nickname = res.content;
-                    util.setStorage('accounts', account);
-                    this.setData({
-                        account: account,
-                    })
-                }
-            })
     },
 
     logout(e) { // 退出登录

@@ -103,6 +103,21 @@ class API {
     }
 
     /**
+     * 获取活动详情
+     * @param {*} activeId 
+     */
+    getActivityInfo = async (activeId) => {
+        const url = 'https://mobilelearn.chaoxing.com/v2/apis/active/getPPTActiveInfo'
+        const res = await util.get(url, {
+            'activeId': activeId,
+        }, this.cookies)
+        Object.assign(this.cookies, res.cookies);
+        const data = res.data;
+        console.log("获取活动详情", res, data);
+        return data;
+    }
+
+    /**
      * 预签到
      * @param {*} activeId 
      * @param {*} courseId 
@@ -152,7 +167,7 @@ class API {
 
             'longitude': longitude ? longitude : -1,
             'latitude': latitude ? latitude : -1,
-            'address': addressText,
+            'address': addressText ? addressText : "",
 
             'signCode': signCode,
             'role': role,
@@ -179,27 +194,19 @@ class API {
      * 获取账号信息
      */
     getUserInfo = async () => {
-        let name = '',
-            sex = '',
-            phone = '',
-            avatar = '',
-            numberCard = '',
-            school = '';
-
-        const url = 'http://passport2.chaoxing.com/mooc/accountManage'
-        const html = await util.getText(url, {}, this.cookies)
-
-        const entity = {
-            'name': name.trim(),
-            'sex': sex.trim(),
-            'phone': phone.trim(),
-            'numberCard': numberCard.trim(),
-            'avatar': avatar.trim(),
-            'school': school.trim()
+        const url = 'https://sso.chaoxing.com/apis/login/userLogin4Uname.do'
+        const res = await util.getText(url, {}, this.cookies)
+        const data = {
+            name: res.msg.name,
+            dept: res.msg.dept,
+            phone: res.msg.phone,
+            school: res.msg.schoolname,
+            uid: res.msg.uid,
+            sex: ["女", "男"][res.msg.sex],
+            unit: res.msg.unitConfigInfos,
         }
-
-        console.log("UserEntity", entity)
-        return entity;
+        console.log("获取用户信息", res, data)
+        return data;
     }
 
 }
