@@ -5,7 +5,7 @@ import config from '../../../api/config';
 
 Page({
     data: {
-        swiperList: config.swiperList,
+        swiperList: config.swiperList.map(item=>`https://cdn.jsdelivr.net/gh/YangRucheng/Chaoxing-WechatMiniProgram/static/swiper/${item}`),
         notice: config.notice, // 公告
         products: config.products.filter(item => item.appid != util.info.miniProgram.appId),
         config: {
