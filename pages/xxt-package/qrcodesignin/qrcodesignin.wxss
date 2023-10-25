@@ -37,10 +37,10 @@
 }
 
 .button {
-	margin: 50rpx 35rpx;
-	width: 680rpx;
+	margin: 30rpx;
+	width: 690rpx;
 }
 
 .input-box {
-	margin: 35rpx;
+	margin: 30rpx;
 }

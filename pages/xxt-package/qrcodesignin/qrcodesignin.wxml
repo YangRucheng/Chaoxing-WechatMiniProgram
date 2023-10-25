@@ -18,4 +18,7 @@
 	<t-input type="digit" label="经度" value="{{location.longitude}}" placeholder="Longitude (选填)" bind:change="input" data-input="location.longitude"></t-input>
 </view>
 
-<t-button t-class="button" theme="primary" size="large" bindtap="onLoad">扫码签到</t-button>
+<view>
+	<t-button wx:if="{{showSetting}}" t-class="button"  theme="primary" size="large" variant="outline" open-type="openSetting">授权定位</t-button>
+	<t-button t-class="button" theme="primary" size="large" bindtap="onLoad">扫码签到</t-button>
+</view>

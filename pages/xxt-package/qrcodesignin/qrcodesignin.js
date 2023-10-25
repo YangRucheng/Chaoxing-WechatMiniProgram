@@ -21,51 +21,60 @@ Page({
 				return;
 			}
 
-			this.setData({
-				'location': await wx.getLocation(),
-			})
-
-			wx.scanCode()
-				.then(qrcode => {
-					log.info("扫码结果", qrcode)
-					let params = {};
-					qrcode.result.split('?')[1].split('&').forEach(param => {
-						const parts = param.split('=');
-						const key = decodeURIComponent(parts[0]);
-						const value = decodeURIComponent(parts[1]);
-						params[key] = value;
-					});
-					const enc = params.enc;
-					const activeId = params.id;
-					const longitude = this.data.location.longitude + 0.0065; // 家人们谁懂啊, 学习通定位有偏差
-					const latitude = this.data.location.latitude + 0.0060;
-
-					accounts.forEach(async account => {
-						util.showLoading("请稍候...")
-						const api = new API(account.username, account.password);
-						const html = await api.beforeSign(activeId, null, null);
-						const res = await api.defaultSign(activeId, null, longitude, latitude, null, null, null, enc);
-						this.setData({
-							results: this.data.results.concat([Object.assign(account, {
-								'result': res
-							})]),
-						})
-						const info = await api.getActivityInfo(activeId);
-						console.log(info, this.data.results)
-						util.hideLoading();
-						util.showInfo(`${account.nickname}\n${res}`);
-
-						let history = util.getStorage('history', []);
-						history = [...history, {
-							'username': account.username,
-							'paasword': account.password,
-							'activeId': activeId,
-						}];
-						util.setStorage('history', history);
+			wx.getLocation()
+				.then(res => {
+					this.setData({
+						'location': res,
+						'showSetting': false,
 					})
+					wx.scanCode()
+						.then(qrcode => {
+							log.info("扫码结果", qrcode)
+							let params = {};
+							qrcode.result.split('?')[1].split('&').forEach(param => {
+								const parts = param.split('=');
+								const key = decodeURIComponent(parts[0]);
+								const value = decodeURIComponent(parts[1]);
+								params[key] = value;
+							});
+							const enc = params.enc;
+							const activeId = params.id;
+							const longitude = this.data.location.longitude + 0.0065; // 家人们谁懂啊, 学习通定位有偏差
+							const latitude = this.data.location.latitude + 0.0060;
+
+							accounts.forEach(async account => {
+								util.showLoading("请稍候...")
+								const api = new API(account.username, account.password);
+								const html = await api.beforeSign(activeId, null, null);
+								const res = await api.defaultSign(activeId, null, longitude, latitude, null, null, null, enc);
+								this.setData({
+									results: this.data.results.concat([Object.assign(account, {
+										'result': res
+									})]),
+								})
+								const info = await api.getActivityInfo(activeId);
+								console.log(info, this.data.results)
+								util.hideLoading();
+								util.showInfo(`${account.nickname}\n${res}`);
+
+								let history = util.getStorage('history', []);
+								history = [...history, {
+									'username': account.username,
+									'paasword': account.password,
+									'activeId': activeId,
+								}];
+								util.setStorage('history', history);
+							})
+						})
+						.catch(e => {
+							util.showInfo("扫码失败")
+						})
 				})
-				.catch(e=>{
-					util.showInfo("扫码失败")
+				.catch(e => {
+					util.showInfo("用户拒绝定位")
+					this.setData({
+						'showSetting': true,
+					})
 				})
 		})();
 	},
