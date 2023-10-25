@@ -2,43 +2,25 @@
 
 .notice {
     width: 100%;
-    overflow: hidden;
     background-color: #f2f3ff;
 }
 
 .swiper {
     margin: 25rpx;
-    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
-    border-left: 0.2px solid #e6e6e6;
-    border-top: 0.2px solid #e6e6e6;
-    border-radius: 20rpx;
 }
 
 .grid {
     display: block;
     margin: 25rpx;
-    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
-    border-left: 0.2px solid #e6e6e6;
-    border-top: 0.2px solid #e6e6e6;
-    border-radius: 15rpx;
-    overflow: hidden;
 }
 
 .official {
     margin: 25rpx;
-    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
-    border-radius: 15rpx;
-    overflow: hidden;
 }
 
 .products {
     background-color: white;
     margin: 25rpx;
-    box-shadow: 6rpx 6rpx 6rpx rgba(0, 0, 0, 0.15);
-    border-left: 0.2px solid #e6e6e6;
-    border-top: 0.2px solid #e6e6e6;
-    border-radius: 15rpx;
-    overflow: hidden;
     padding: 25rpx;
     min-height: 250rpx;
 }

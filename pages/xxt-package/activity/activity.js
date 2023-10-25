@@ -14,7 +14,8 @@ Page({
         const classId = options.classId;
         const courseId = options.courseId;
         const courseName = options.courseName;
-        const api = new API(username, password);
+		const api = new API(username, password);
+		util.showLoading("正在获取签到")
         api.getActivity(courseId, classId).then(activities => {
             this.setData({
                 'uid': uid,
@@ -27,8 +28,8 @@ Page({
             wx.setNavigationBarTitle({
                 title: `活动列表 - ${courseName}`,
             })
-            this.hideLoading();
-            this.showInfo("获取活动成功");
+            util.hideLoading();
+            util.showInfo("获取活动成功");
         })
     },
 
@@ -60,26 +61,5 @@ Page({
                     this.onLoad(this.data.options);
                 }
             })
-    },
-
-    showLoading(msg) {
-        wx.showLoading({
-            title: msg,
-            mask: true,
-        })
-    },
-
-    hideLoading() {
-        wx.hideLoading({
-            noConflict: true,
-        });
-    },
-
-    showInfo(msg, icon = "none") {
-        wx.showToast({
-            title: msg,
-            mask: true,
-            icon: icon,
-        })
     },
 })

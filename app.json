@@ -2,7 +2,7 @@
     "pages": [
         "pages/tabbar-package/login/login",
         "pages/tabbar-package/home/home",
-        "pages/tabbar-package/notice/notice",
+        "pages/tabbar-package/find/find",
         "pages/tabbar-package/user/user"
     ],
     "window": {
@@ -19,7 +19,7 @@
                 "pagePath": "pages/tabbar-package/home/home"
             },
             {
-                "pagePath": "pages/tabbar-package/notice/notice"
+                "pagePath": "pages/tabbar-package/find/find"
             },
             {
                 "pagePath": "pages/tabbar-package/user/user"

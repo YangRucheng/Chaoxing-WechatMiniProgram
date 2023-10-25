@@ -55,9 +55,7 @@ Page({
         console.log("活动内容", data, options)
         const type = options.type != undefined ? options.type : '';
         (async () => {
-            wx.showLoading({
-                title: '正在加载...',
-            })
+            util.showLoading("正在加载...")
             wx.setNavigationBarTitle({
                 title: typeConfig[data.type],
             })
@@ -73,7 +71,7 @@ Page({
                 await api.login();
             }
             this.data.token = data.type == 0 ? await api.getToken() : '';
-            wx.hideLoading();
+            util.hideLoading();
             const html = await api.beforeSign(data.activeId, data.courseId, data.classId);
             this.data.html = html;
             // console.log(html);
@@ -131,7 +129,7 @@ Page({
                     break;
                 }
             }
-            this.showInfo(res);
+            util.showInfo(res);
             if (res == 'success' || res == 'success1' || res == 'success2')
                 this.setHistory();
         })();
@@ -145,14 +143,14 @@ Page({
                 })
             })
             .catch(e => {
-                this.showInfo("取消位置选择")
+                util.showInfo("取消位置选择")
             })
     },
 
     autoGetLocation() { // 自动获取位置信息
         const html = this.data.html;
         const token = util.getStorage('token', 'no-token');
-        this.showLoading("正在解析签到位置")
+        util.showLoading("正在解析签到位置")
         util.post(`${config.host}/signin/getLocation`, {
                 'html': html,
                 'token': token,
@@ -161,20 +159,20 @@ Page({
                 log.info(res);
                 if (res.status != 0)
                     throw "解析失败 请手动获取";
-                this.showInfo(res.msg);
+                util.showInfo(res.msg);
                 this.setData({
                     'location': Object.assign(this.data.location, res.data.location),
                 })
             })
             .catch(e => {
                 log.error(e);
-                this.showInfo(e);
+                util.showInfo(e);
                 this.setData({
                     'vip': false,
                 })
             })
             .finally(() => {
-                this.hideLoading();
+                util.hideLoading();
             })
     },
 
@@ -185,9 +183,9 @@ Page({
     },
 
     setHistory() { // 写入签到记录
-        let history = util.getStorage(`history-${this.data.data.username}`, []);
-        history = [...history, ...[this.data.data]];
-        util.setStorage(`history-${this.data.data.username}`, history);
+        let history = util.getStorage('history', []);
+        history = [...history, this.data.data];
+        util.setStorage('history', history);
     },
 
     handleAdd(e) {
@@ -283,26 +281,5 @@ Page({
             imageUrl: this.data.data.img,
             path: `/pages/xxt-package/signin/signin?type=help&data=${data}`
         }
-    },
-
-    showLoading(msg) {
-        wx.showLoading({
-            title: msg,
-            mask: true,
-        })
-    },
-
-    hideLoading() {
-        wx.hideLoading({
-            noConflict: true,
-        });
-    },
-
-    showInfo(msg, icon = "none") {
-        wx.showToast({
-            title: msg,
-            mask: true,
-            icon: icon,
-        })
     },
 })

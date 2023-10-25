@@ -1,16 +1,21 @@
 <!--pages/xxt-package/qrcodesignin/qrcodesignin.wxml-->
 
 <view class="box">
-    <view class="users-item" wx:for="{{results}}" wx:key="index">
-        <view class="users-item-image">
-            <t-image src="https://photo.chaoxing.com/p/{{item.uid}}_80" width="60" height="60" shape="round" mode="aspectFill"></t-image>
-        </view>
-        <view class="users-item-info">
-            <text class="users-item-title">{{item.result}}</text>
-            <text class="users-item-other">姓名: {{item.nickname}}</text>
-            <text class="users-item-other">帐号: {{item.username}}</text>
-        </view>
-    </view>
+	<view class="users-item" wx:for="{{results}}" wx:key="index">
+		<view class="users-item-image">
+			<t-image src="https://photo.chaoxing.com/p/{{item.uid}}_80" width="60" height="60" shape="round" mode="aspectFill"></t-image>
+		</view>
+		<view class="users-item-info">
+			<text class="users-item-title">{{item.result}}</text>
+			<text class="users-item-other">姓名: {{item.nickname}}</text>
+			<text class="users-item-other">帐号: {{item.username}}</text>
+		</view>
+	</view>
+</view>
+
+<view class="input-box shadow-radius">
+	<t-input type="digit" label="纬度" value="{{location.latitude}}" placeholder="Latitude (选填)" bind:change="input" data-input="location.latitude"></t-input>
+	<t-input type="digit" label="经度" value="{{location.longitude}}" placeholder="Longitude (选填)" bind:change="input" data-input="location.longitude"></t-input>
 </view>
 
 <t-button t-class="button" theme="primary" size="large" bindtap="onLoad">扫码签到</t-button>

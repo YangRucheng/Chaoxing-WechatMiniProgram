@@ -1,5 +1,29 @@
 /**app.wxss**/
 
-page{
-    background-color: #f6f6f6;
+page {
+	background-color: #f6f6f6;
+}
+
+.shadow-radius{
+    box-shadow: 0rpx 8rpx 10rpx -5rpx rgba(0, 0, 0, 0.08), 0rpx 16rpx 24rpx 2rpx rgba(0, 0, 0, 0.04), 0rpx 6rpx 30rpx 5rpx rgba(0, 0, 0, 0.05);
+	border-radius: 20rpx;
+	overflow: hidden;
+}
+
+view.no-data {
+	width: 100%;
+	text-align: center;
+	margin-top: calc(50vh - 300rpx);
+	color: gray;
+}
+
+image.no-data {
+	display: block;
+	width: 160rpx;
+	height: 160rpx;
+	margin: 20rpx auto;
+}
+
+text.no-data{
+	font-size: 34rpx;
 }

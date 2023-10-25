@@ -12,13 +12,13 @@ Page({
         const accounts = util.getStorage('accounts', []);
         const activeIndex = util.getStorage('activeIndex', -1);
         if (accounts.length == 0) {
-            this.showInfo('请先绑定账号!');
+            util.showInfo('请先绑定账号!');
             wx.redirectTo({
                 url: '/pages/user-package/bind/bind',
             })
             return;
         }
-        this.showLoading("正在获取课程")
+        util.showLoading("正在获取课程")
         const account = accounts[activeIndex];
         const api = new API(account.username, account.password);
         api.getCourse()
@@ -29,8 +29,8 @@ Page({
                 })
             })
             .finally(() => {
-                this.hideLoading();
-                this.showInfo("获取课程成功")
+                util.hideLoading();
+                util.showInfo("获取课程成功")
             })
     },
 
@@ -53,27 +53,6 @@ Page({
         const courseName = e.currentTarget.dataset.coursename;
         wx.navigateTo({
             url: `/pages/xxt-package/activity/activity?username=${account.username}&password=${account.password}&classId=${classId}&courseId=${courseId}&uid=${account.uid}&courseName=${courseName}`,
-        })
-    },
-
-    showLoading(msg) {
-        wx.showLoading({
-            title: msg,
-            mask: true,
-        })
-    },
-
-    hideLoading() {
-        wx.hideLoading({
-            noConflict: true,
-        });
-    },
-
-    showInfo(msg, icon = "none") {
-        wx.showToast({
-            title: msg,
-            mask: true,
-            icon: icon,
         })
     },
 })

@@ -1,0 +1,6 @@
+<!--pages/user-package/invite/invite.wxml-->
+
+<view class="no-data">
+    <image class="no-data" src="/static/svg/no-data.svg" mode="aspectFit"></image>
+    <text class="no-data">敬请期待</text>
+</view>

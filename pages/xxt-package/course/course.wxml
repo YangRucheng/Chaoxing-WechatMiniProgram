@@ -1,16 +1,22 @@
 <!--pages/course/course.wxml-->
 
 <view class="box">
-    <view class="course-item" wx:for="{{courses}}" wx:key="index" bindtap="navigate" data-classId="{{item.classId}}" data-courseId="{{item.courseId}}" data-courseName="{{item.courseName}}">
-        <view class="course-item-image">
-            <t-image src="{{item.img}}" width="60" height="60" shape="round" mode="aspectFill"></t-image>
-        </view>
-        <view class="course-item-info">
-            <text class="course-item-title {{item.isShow?'':'inside-title'}}">{{item['课程']}}</text>
-            <text class="course-item-other">教师: {{item['教师']}}</text>
-            <text class="course-item-other">班级: {{item['班级']}}</text>
-        </view>
-    </view>
+	<view class="course-item" wx:for="{{courses}}" wx:key="index" bindtap="navigate" data-classId="{{item.classId}}" data-courseId="{{item.courseId}}" data-courseName="{{item.courseName}}">
+		<view class="course-item-image">
+			<t-image src="{{item.img}}" width="60" height="60" shape="round" mode="aspectFill"></t-image>
+		</view>
+		<view class="course-item-info">
+			<text class="course-item-title {{item.isShow?'':'inside-title'}}">{{item['课程']}}</text>
+			<text class="course-item-other">教师: {{item['教师']}}</text>
+			<text class="course-item-other">班级: {{item['班级']}}</text>
+		</view>
+	</view>
+	<view wx:if="{{courses.length==0}}">
+		<view class="no-data">
+			<image class="no-data" src="/static/svg/no-data.svg" mode="aspectFit"></image>
+			<text class="no-data">暂无课程</text>
+		</view>
+	</view>
 </view>
 
 <t-fab icon="/static/svg/course-刷新.svg" bind:click="onPullDownRefresh" aria-label="刷新"></t-fab>

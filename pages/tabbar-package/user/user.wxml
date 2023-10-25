@@ -10,7 +10,7 @@
 </view>
 
 <view class="box">
-    <view class="statistics">
+    <view class="statistics shadow-radius">
         <t-grid column="4">
             <t-grid-item text="9999次" description="代签次数" image="{{img}}"></t-grid-item>
             <t-grid-item text="{{accountNum}}个" description="绑定账号" image="{{img}}"></t-grid-item>
@@ -19,14 +19,14 @@
         </t-grid>
     </view>
 
-    <view class="more">
+    <view class="more shadow-radius">
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/bind/bind">账号管理</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/xxt-package/course/course">所有课程</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/user-package/invite/invite">邀请用户</button>
         <button hover-class="none" class="more-button no-border" bindtap="navigate" data-url="/pages/about-package/help/help">疑难解答</button>
     </view>
 
-    <view class="more">
+    <view class="more shadow-radius">
         <button hover-class="none" class="more-button" open-type="contact">联系客服</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/protocol/protocol">用户协议</button>
         <button hover-class="none" class="more-button" bindtap="navigate" data-url="/pages/about-package/qqchat/qqchat">使用交流</button>        
@@ -39,6 +39,6 @@
 
 <t-tab-bar value="user" bindchange="changeTabbar" shape="round" theme="tag">
     <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
-    <t-tab-bar-item value="notice" icon="chat">通知</t-tab-bar-item>
+    <t-tab-bar-item value="find" icon="chat">发现</t-tab-bar-item>
     <t-tab-bar-item value="user" icon="user">用户</t-tab-bar-item>
 </t-tab-bar>

@@ -180,6 +180,11 @@ class API {
         console.log("默认签到/图片签到", res);
         return res;
     }
+    
+
+    getHomework = async ()=>{
+        
+    }
 
     /**
      * 获取超星云盘token
@@ -195,7 +200,8 @@ class API {
      */
     getUserInfo = async () => {
         const url = 'https://sso.chaoxing.com/apis/login/userLogin4Uname.do'
-        const res = await util.getText(url, {}, this.cookies)
+        const res = await util.get(url, {}, this.cookies)
+        console.log(res)
         const data = {
             name: res.msg.name,
             dept: res.msg.dept,
@@ -209,6 +215,19 @@ class API {
         return data;
     }
 
+    /**
+     * 上传文件到超星云盘
+     * @param {*} filePath 
+     * @param {*} uid 
+     */
+    uploadFile = async (filePath, uid) => {
+        const url = `https://pan-yz.chaoxing.com/upload?_token=${token}`;
+        const res = await util.uploadFile(url, filePath, {
+            'puid': uid,
+        });
+        console.log("上传文件", res)
+        return res;
+    }
 }
 
 module.exports = API;

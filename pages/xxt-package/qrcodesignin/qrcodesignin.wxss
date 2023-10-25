@@ -1,42 +1,46 @@
 /* pages/xxt-package/qrcodesignin/qrcodesignin.wxss */
 
 .box {
-    margin: 0rpx;
+	margin: 0rpx;
 }
 
 .users-item {
-    margin: 30rpx;
-    min-height: 100rpx;
-    box-shadow: 3rpx 3rpx 12rpx rgba(0, 0, 0, 0.15);
-    background-color: white;
-    border-radius: 20rpx;
-    padding: 30rpx;
-    display: flex;
+	margin: 30rpx;
+	min-height: 100rpx;
+	box-shadow: 3rpx 3rpx 12rpx rgba(0, 0, 0, 0.15);
+	background-color: white;
+	border-radius: 20rpx;
+	padding: 30rpx;
+	display: flex;
 }
 
 .users-item-image {
-    width: 60px;
-    height: 60px;
+	width: 60px;
+	height: 60px;
 }
 
 .users-item-info {
-    margin: 0rpx 20rpx;
-    max-width: 450rpx;
+	margin: 0rpx 20rpx;
+	max-width: 450rpx;
 }
 
 .users-item-title {
-    font-size: 30rpx;
-    display: block;
-    margin-bottom: 10rpx;
+	font-size: 30rpx;
+	display: block;
+	margin-bottom: 10rpx;
 }
 
 .users-item-other {
-    color: gray;
-    font-size: 24rpx;
-    display: block;
+	color: gray;
+	font-size: 24rpx;
+	display: block;
 }
 
 .button {
-    margin: 50rpx 35rpx;
-    width: 680rpx;
+	margin: 50rpx 35rpx;
+	width: 680rpx;
+}
+
+.input-box {
+	margin: 35rpx;
 }

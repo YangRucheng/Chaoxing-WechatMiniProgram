@@ -64,7 +64,7 @@
         <view class="input-box">
             <t-input type="digit" label="纬度" value="{{location.latitude}}" placeholder="Latitude (选填)" bind:change="input" data-input="location.latitude"></t-input>
             <t-input type="digit" label="经度" value="{{location.longitude}}" placeholder="Longitude (选填)" bind:change="input" data-input="location.longitude"></t-input>
-            <t-input type="digit" label="位置" value="{{location.addressText}}" placeholder="Address (选填)" bind:change="input" data-input="location.addressText"></t-input>
+            <t-input type="digit" label="位置" value="{{location.addressText}}" placeholder="Address (选填, 教师端可见)" bind:change="input" data-input="location.addressText"></t-input>
         </view>
         <view class="button-box">
             <t-button t-class="button" wx:if="{{type!='help'}}" theme="primary" size="large" open-type="share" variant="outline">请人代签</t-button>
