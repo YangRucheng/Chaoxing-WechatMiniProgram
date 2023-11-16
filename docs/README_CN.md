@@ -4,9 +4,13 @@
 
 ## 已上线的小程序
 
-+ 罗总真理之书
++ Misaka学习
 
-## 部署自己的小程序
+### 添加你的小程序链接?
+
+    请提 [Issue](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/issues/new)
+
+## 部署教程
 
 > 敬请期待
 

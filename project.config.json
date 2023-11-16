@@ -26,6 +26,10 @@
             {
                 "value": "static/swiper",
                 "type": "folder"
+            },
+            {
+                "value": "docs",
+                "type": "folder"
             }
         ],
         "include": []
