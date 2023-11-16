@@ -8,7 +8,7 @@
 
 ### 添加你的小程序链接?
 
-    请提 [Issue](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/issues/new)
+    [提 Issue](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/issues/new)
 
 ## 部署教程
 
