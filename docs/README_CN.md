@@ -6,9 +6,9 @@
 
 + Misaka学习
 
-### 添加你的小程序链接?
+## 添加你的小程序链接?
 
-    [提 Issue](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/issues/new)
+[提 Issue](https://github.com/YangRucheng/Chaoxing-WechatMiniProgram/issues/new)
 
 ## 部署教程
 
