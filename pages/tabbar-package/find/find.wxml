@@ -6,7 +6,7 @@
 
 <view style="height: 120rpx;"></view>
 
-<t-tab-bar value="notice" bindchange="changeTabbar" shape="round" theme="tag">
+<t-tab-bar value="find" bindchange="changeTabbar" shape="round" theme="tag">
     <t-tab-bar-item value="home" icon="home">首页</t-tab-bar-item>
     <t-tab-bar-item value="find" icon="chat">发现</t-tab-bar-item>
     <t-tab-bar-item value="user" icon="user">用户</t-tab-bar-item>

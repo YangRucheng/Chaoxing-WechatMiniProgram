@@ -201,7 +201,6 @@ class API {
     getUserInfo = async () => {
         const url = 'https://sso.chaoxing.com/apis/login/userLogin4Uname.do'
         const res = await util.get(url, {}, this.cookies)
-        console.log(res)
         const data = {
             name: res.msg.name,
             dept: res.msg.dept,

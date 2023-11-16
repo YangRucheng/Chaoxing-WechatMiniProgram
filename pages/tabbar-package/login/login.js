@@ -5,7 +5,7 @@ import config from '../../../api/config';
 
 Page({
     data: {
-        swiperList: [`https://cdn.jsdelivr.net/gh/YangRucheng/Chaoxing-WechatMiniProgram/static/swiper/${config.swiperList[Math.floor(Math.random() * config.swiperList.length)]}`],
+        swiperList: [`${config.cdn}${config.swiperList[Math.floor(Math.random() * config.swiperList.length)]}`],
         notice: config.notice, // 公告
         products: config.products,
         config: {
@@ -24,16 +24,15 @@ Page({
     login(options) { // 登录
         wx.login()
             .then(res => {
-                this.showLoading("正在登录")
                 util.post(`${config.host}/account/login`, {
                         'code': res.code,
                         'appid': util.info.miniProgram.appId,
                         'inviter': options.inviter ? options.inviter : 1, // 邀请者
-                    }, {}, 1000)
+                    }, {}, config.timeout * 1000)
                     .then(res => {
                         log.info(res)
                         if (res.status == 0) {
-                            this.showInfo("登录成功")
+                            util.showInfo("登录成功")
                             util.setStorage('vip', res.data.vip);
                             util.setStorage('uid', res.data.uid);
                             util.setStorage('token', res.data.token);
@@ -43,35 +42,13 @@ Page({
                     })
                     .catch(e => {
                         log.error("登录失败", e)
-                        this.showInfo("登录失败\n不影响签到")
+                        util.showInfo("登录失败\n不影响签到")
                     })
                     .finally(() => {
-                        this.hideLoading();
                         wx.switchTab({
                             url: '/pages/tabbar-package/home/home',
                         })
                     })
             })
-    },
-
-    showLoading(msg) {
-        wx.showLoading({
-            title: msg,
-            mask: true,
-        })
-    },
-
-    hideLoading() {
-        wx.hideLoading({
-            noConflict: true,
-        });
-    },
-
-    showInfo(msg, icon = "none") {
-        wx.showToast({
-            title: msg,
-            mask: true,
-            icon: icon,
-        })
     },
 })

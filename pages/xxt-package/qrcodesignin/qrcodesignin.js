@@ -43,7 +43,6 @@ Page({
 							const latitude = this.data.location.latitude + 0.0060;
 
 							accounts.forEach(async account => {
-								util.showLoading("请稍候...")
 								const api = new API(account.username, account.password);
 								const html = await api.beforeSign(activeId, null, null);
 								const res = await api.defaultSign(activeId, null, longitude, latitude, null, null, null, enc);
@@ -54,7 +53,6 @@ Page({
 								})
 								const info = await api.getActivityInfo(activeId);
 								console.log(info, this.data.results)
-								util.hideLoading();
 								util.showInfo(`${account.nickname}\n${res}`);
 
 								let history = util.getStorage('history', []);

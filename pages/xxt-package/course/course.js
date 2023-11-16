@@ -8,7 +8,6 @@ Page({
     },
 
     onLoad(options) {
-        // console.log("获取课程...")
         const accounts = util.getStorage('accounts', []);
         const activeIndex = util.getStorage('activeIndex', -1);
         if (accounts.length == 0) {
@@ -18,7 +17,6 @@ Page({
             })
             return;
         }
-        util.showLoading("正在获取课程")
         const account = accounts[activeIndex];
         const api = new API(account.username, account.password);
         api.getCourse()
@@ -29,7 +27,6 @@ Page({
                 })
             })
             .finally(() => {
-                util.hideLoading();
                 util.showInfo("获取课程成功")
             })
     },

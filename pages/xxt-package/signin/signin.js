@@ -55,7 +55,6 @@ Page({
         console.log("活动内容", data, options)
         const type = options.type != undefined ? options.type : '';
         (async () => {
-            util.showLoading("正在加载...")
             wx.setNavigationBarTitle({
                 title: typeConfig[data.type],
             })
@@ -71,7 +70,6 @@ Page({
                 await api.login();
             }
             this.data.token = data.type == 0 ? await api.getToken() : '';
-            util.hideLoading();
             const html = await api.beforeSign(data.activeId, data.courseId, data.classId);
             this.data.html = html;
             // console.log(html);
@@ -150,7 +148,6 @@ Page({
     autoGetLocation() { // 自动获取位置信息
         const html = this.data.html;
         const token = util.getStorage('token', 'no-token');
-        util.showLoading("正在解析签到位置")
         util.post(`${config.host}/signin/getLocation`, {
                 'html': html,
                 'token': token,
@@ -170,9 +167,6 @@ Page({
                 this.setData({
                     'vip': false,
                 })
-            })
-            .finally(() => {
-                util.hideLoading();
             })
     },
 

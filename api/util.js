@@ -7,6 +7,7 @@
  * @param {object} cookies
  */
 const get = (url, data = {}, cookies = {}, timeout = 15000) => {
+	showLoading("请稍候")
 	return new Promise((resolve, reject) => {
 		wx.request({
 			method: "GET",
@@ -24,7 +25,10 @@ const get = (url, data = {}, cookies = {}, timeout = 15000) => {
 			},
 			fail(err) {
 				reject(err)
-			}
+			},
+			complete(){
+				hideLoading();
+			},
 		})
 	})
 }
@@ -37,11 +41,8 @@ const get = (url, data = {}, cookies = {}, timeout = 15000) => {
  * @param {object} cookies
  */
 const post = (url, data = {}, cookies = {}, timeout = 15000) => {
+	showLoading("请稍候")
 	return new Promise((resolve, reject) => {
-		wx.showLoading({
-			title: '请稍候',
-			mask: true,
-		})
 		wx.request({
 			method: "POST",
 			url: url,
@@ -58,7 +59,10 @@ const post = (url, data = {}, cookies = {}, timeout = 15000) => {
 			},
 			fail(err) {
 				reject(err)
-			}
+			},
+			complete(){
+				hideLoading();
+			},
 		})
 	})
 }
@@ -70,6 +74,7 @@ const post = (url, data = {}, cookies = {}, timeout = 15000) => {
  * @param {object} cookies
  */
 const getText = (url, data = {}, cookies = {}) => {
+	showLoading("请稍候")
 	return new Promise((resolve, reject) => {
 		wx.request({
 			method: "GET",
@@ -82,8 +87,11 @@ const getText = (url, data = {}, cookies = {}) => {
 				resolve(res.data);
 			},
 			fail(err) {
-				reject(err)
-			}
+				reject(err);
+			},
+			complete(){
+				hideLoading();
+			},
 		})
 	})
 }
@@ -112,7 +120,7 @@ const uploadFile = (url, filePath, formData = {}, cookies = {}) => {
 			},
 			fail(err) {
 				reject(err)
-			}
+			},
 		})
 	})
 }
@@ -170,7 +178,6 @@ const setStorage = (key, value) => {
 
 /**
  * 读取缓存
- * 未来可能实现多设备缓存同步
  * @param {string} key 
  * @param {*} defaultValue
  */

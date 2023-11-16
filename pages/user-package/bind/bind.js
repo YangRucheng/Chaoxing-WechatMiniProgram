@@ -39,14 +39,13 @@ Page({
 		}
 
 		const api = new API(username, password);
-		util.showLoading("正在登录...")
 		api.login()
 			.then(res => {
 				util.showInfo(res.mes);
 				if (res.status) {
 					api.getUserInfo()
 						.then(userinfo => {
-							log.info("登录成功", userinfo);
+							util.showInfo("登录成功")
 							const account = that.data.account.concat([{
 								'username': username,
 								'password': password,
@@ -58,18 +57,18 @@ Page({
 								'account': account,
 								'usernameValue': '',
 								'passwordValue': '',
-								'activeIndex': that.data.account.length - 1,
+								'activeIndex': account.length - 1,
 							})
 							util.setStorage('accounts', account);
-							util.setStorage('activeIndex', that.data.account.length - 1);
+							util.setStorage('activeIndex', account.length - 1);
 						})
-						.finally(() => {
-							util.hideLoading();
+						.catch(e => {
+							util.showInfo("网络不稳定 请稍后再试");
 						})
 				}
 			})
 			.catch(e => {
-				util.showInfo("网络不稳定 请稍后重试");
+				util.showInfo("网络不稳定 请稍后再试");
 			})
 	},
 
@@ -115,7 +114,7 @@ Page({
 				return;
 			}
 			if (index == activeIndex) { // 删除当前登录的账号
-				this.showInfo("请先切换到其他账号")
+				util.showInfo("请先切换到其他账号")
 				return;
 			}
 			if (index < activeIndex) { // 删除前面的账号
@@ -141,7 +140,6 @@ Page({
 
 	onLoad(options) {
 		this.setData({
-			'vip': util.getStorage('vip', false),
 			'type': options.type != undefined ? options.type : '',
 			'usernameValue': options.username != undefined ? options.username : '',
 			'passwordValue': options.password != undefined ? options.password : '',
@@ -150,13 +148,13 @@ Page({
 
 	onShow() {
 		this.setData({
+			'vip': util.getStorage('vip', false),
 			'account': util.getStorage('accounts', []),
 			'activeIndex': util.getStorage('activeIndex', 0),
 		});
 	},
 
 	onShareAppMessage() {
-		const nickname = this.data.nicknameValue;
 		const username = this.data.usernameValue;
 		const password = this.data.passwordValue;
 		if (password.includes('=') || password.includes('&')) {
@@ -170,7 +168,7 @@ Page({
 		return {
 			title: '快速添加我的账号',
 			imageUrl: '',
-			path: `/pages/user-package/bind/bind?username=${username}&password=${password}&nickname=${nickname}&type=share`,
+			path: `/pages/user-package/bind/bind?username=${username}&password=${password}&type=share`,
 		}
 	},
 })
